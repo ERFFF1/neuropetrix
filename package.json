@@ -1,0 +1,16 @@
+{
+  "name": "neuropetrix-monorepo",
+  "version": "3.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "make dev",
+    "build": "make build",
+    "install": "make install"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
