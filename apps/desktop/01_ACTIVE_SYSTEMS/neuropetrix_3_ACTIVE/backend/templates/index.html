@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroPETRIX v2.0 - Hybrid Integration</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .system { margin: 20px 0; padding: 20px; border: 1px solid #ddd; border-radius: 5px; }
+        .legacy { background-color: #f0f8ff; }
+        .new { background-color: #f0fff0; }
+        .endpoint { margin: 5px 0; padding: 5px; background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <h1>NeuroPETRIX v2.0 - Hybrid Integration System</h1>
+    
+    <div class="system legacy">
+        <h2>🔵 Legacy System (Mevcut Sistem)</h2>
+        <p>Mevcut sistem korunuyor ve çalışmaya devam ediyor.</p>
+        <h3>Available Endpoints:</h3>
+        <div class="endpoint">/health - Health check</div>
+        <div class="endpoint">/pico - PICO analysis</div>
+        <div class="endpoint">/evidence - Evidence management</div>
+        <div class="endpoint">/whisper - Speech recognition</div>
+        <div class="endpoint">/dicom - DICOM processing</div>
+        <div class="endpoint">/reports - Report generation</div>
+        <div class="endpoint">/patients - Patient management</div>
+        <div class="endpoint">/suv - SUV analysis</div>
+        <div class="endpoint">/desktop-runner - Desktop integration</div>
+        <div class="endpoint">/monai-radiomics - MONAI radiomics</div>
+        <div class="endpoint">/hbys-integration - HBYS integration</div>
+        <div class="endpoint">/branch-specialization - Branch specialization</div>
+        <div class="endpoint">/integration-workflow - Integration workflow</div>
+    </div>
+    
+    <div class="system new">
+        <h2>🟢 New v2.0 System (Yeni Sistem)</h2>
+        <p>Yeni v2.0 sistemi paralel olarak entegre edildi.</p>
+        <h3>Available Endpoints:</h3>
+        <div class="endpoint">/intake - Patient intake (HBYS)</div>
+        <div class="endpoint">/imaging - Imaging pipeline (DICOM→MPR/MIP→MONAI→PyRadiomics)</div>
+        <div class="endpoint">/evidence - Evidence building (PICO/GRADE/refs)</div>
+        <div class="endpoint">/report - Report composition (TSNM/Annex/FHIR)</div>
+    </div>
+    
+    <div class="system">
+        <h2>📊 System Status</h2>
+        <p><strong>API Version:</strong> 2.0.0</p>
+        <p><strong>Status:</strong> Hybrid Integration Active</p>
+        <p><strong>Legacy System:</strong> <span id="legacy-status">Loading...</span></p>
+        <p><strong>New v2.0 System:</strong> <span id="new-status">Loading...</span></p>
+    </div>
+    
+    <div class="system">
+        <h2>🔗 Quick Links</h2>
+        <p><a href="/docs">📖 Swagger API Documentation</a></p>
+        <p><a href="/redoc">📚 ReDoc API Documentation</a></p>
+        <p><a href="/health">💚 Health Check</a></p>
+        <p><a href="/api/status">📊 API Status</a></p>
+    </div>
+    
+    <script>
+        // Check system status
+        fetch('/health')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('legacy-status').textContent = data.legacy_system ? 'Active' : 'Inactive';
+                document.getElementById('new-status').textContent = data.new_system ? 'Active' : 'Inactive';
+            })
+            .catch(error => {
+                console.error('Error checking system status:', error);
+            });
+    </script>
+</body>
+</html>

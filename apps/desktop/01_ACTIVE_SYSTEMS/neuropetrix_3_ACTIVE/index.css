@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for NeuroPETrix */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Medical theme colors */
+.bg-medical-50 { background-color: #eff6ff; }
+.bg-medical-100 { background-color: #dbeafe; }
+.bg-medical-200 { background-color: #bfdbfe; }
+.bg-medical-300 { background-color: #93c5fd; }
+.bg-medical-400 { background-color: #60a5fa; }
+.bg-medical-500 { background-color: #3b82f6; }
+.bg-medical-600 { background-color: #2563eb; }
+.bg-medical-700 { background-color: #1d4ed8; }
+.bg-medical-800 { background-color: #1e40af; }
+.bg-medical-900 { background-color: #1e3a8a; }
+
+.text-medical-50 { color: #eff6ff; }
+.text-medical-100 { color: #dbeafe; }
+.text-medical-200 { color: #bfdbfe; }
+.text-medical-300 { color: #93c5fd; }
+.text-medical-400 { color: #60a5fa; }
+.text-medical-500 { color: #3b82f6; }
+.text-medical-600 { color: #2563eb; }
+.text-medical-700 { color: #1d4ed8; }
+.text-medical-800 { color: #1e40af; }
+.text-medical-900 { color: #1e3a8a; }
+
+.border-medical-200 { border-color: #bfdbfe; }
+.border-medical-300 { border-color: #93c5fd; }
+.border-medical-500 { border-color: #3b82f6; }
+
+/* Success colors */
+.text-green-600 { color: #16a34a; }
+.text-blue-600 { color: #2563eb; }
+.text-purple-600 { color: #9333ea; }
+.text-indigo-600 { color: #4f46e5; }
+
+/* Loading animations */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Card shadows */
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Smooth transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .ml-64 {
+    margin-left: 0;
+  }
+  
+  .w-64 {
+    width: 100%;
+  }
+}
+

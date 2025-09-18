@@ -1,0 +1,299 @@
+{
+  "health_status": {
+    "overall_status": "warning",
+    "timestamp": "2025-08-29T23:47:48.105094",
+    "system_metrics": {
+      "timestamp": "2025-08-29T23:47:48.067776",
+      "cpu_percent": 11.2,
+      "memory_percent": 82.1,
+      "memory_available_gb": 1.44,
+      "disk_usage_percent": 6.01,
+      "disk_free_gb": 16.14,
+      "network_bytes_sent": 2676219904,
+      "network_bytes_recv": 2736953344
+    },
+    "api_metrics": {
+      "tested_endpoints": 6,
+      "successful": 6,
+      "failed": 0,
+      "average_response_time": 4.87,
+      "endpoint_results": [
+        {
+          "endpoint": "GET /health",
+          "response_time_ms": 15.95,
+          "status_code": 200,
+          "success": true
+        },
+        {
+          "endpoint": "GET /api/status",
+          "response_time_ms": 2.85,
+          "status_code": 200,
+          "success": true
+        },
+        {
+          "endpoint": "GET /patients/",
+          "response_time_ms": 3.11,
+          "status_code": 200,
+          "success": true
+        },
+        {
+          "endpoint": "GET /intake/all-patients",
+          "response_time_ms": 3.71,
+          "status_code": 200,
+          "success": true
+        },
+        {
+          "endpoint": "GET /hbys/health",
+          "response_time_ms": 2.07,
+          "status_code": 200,
+          "success": true
+        },
+        {
+          "endpoint": "GET /monai/models",
+          "response_time_ms": 1.5,
+          "status_code": 200,
+          "success": true
+        }
+      ],
+      "success_rate": 100.0
+    },
+    "warnings": [
+      "Elevated memory usage"
+    ],
+    "errors": [],
+    "uptime_hours": 139.27
+  },
+  "performance_report": {
+    "report_timestamp": "2025-08-29T23:47:49.134049",
+    "overall_performance": {
+      "score": 90,
+      "grade": "A",
+      "status": "warning"
+    },
+    "current_metrics": {
+      "system": {
+        "timestamp": "2025-08-29T23:47:49.110577",
+        "cpu_percent": 16.1,
+        "memory_percent": 81.7,
+        "memory_available_gb": 1.46,
+        "disk_usage_percent": 6.01,
+        "disk_free_gb": 16.14,
+        "network_bytes_sent": 2676231168,
+        "network_bytes_recv": 2736962560
+      },
+      "api": {
+        "tested_endpoints": 6,
+        "successful": 6,
+        "failed": 0,
+        "average_response_time": 2.41,
+        "endpoint_results": [
+          {
+            "endpoint": "GET /health",
+            "response_time_ms": 3.09,
+            "status_code": 200,
+            "success": true
+          },
+          {
+            "endpoint": "GET /api/status",
+            "response_time_ms": 2.34,
+            "status_code": 200,
+            "success": true
+          },
+          {
+            "endpoint": "GET /patients/",
+            "response_time_ms": 2.71,
+            "status_code": 200,
+            "success": true
+          },
+          {
+            "endpoint": "GET /intake/all-patients",
+            "response_time_ms": 2.43,
+            "status_code": 200,
+            "success": true
+          },
+          {
+            "endpoint": "GET /hbys/health",
+            "response_time_ms": 1.8,
+            "status_code": 200,
+            "success": true
+          },
+          {
+            "endpoint": "GET /monai/models",
+            "response_time_ms": 2.09,
+            "status_code": 200,
+            "success": true
+          }
+        ],
+        "success_rate": 100.0
+      }
+    },
+    "historical_summary": {
+      "data_points": 4,
+      "api_endpoints_monitored": 6,
+      "recent_errors_count": 12
+    },
+    "recommendations": [
+      "Monitor memory leaks and consider increasing RAM or implementing caching"
+    ]
+  },
+  "historical_data": {
+    "time_range_hours": 6,
+    "system_history": [
+      {
+        "timestamp": "2025-08-29 20:47:49",
+        "cpu_percent": 16.1,
+        "memory_percent": 81.7,
+        "disk_usage_percent": 6.01
+      },
+      {
+        "timestamp": "2025-08-29 20:47:48",
+        "cpu_percent": 11.2,
+        "memory_percent": 82.1,
+        "disk_usage_percent": 6.01
+      },
+      {
+        "timestamp": "2025-08-29 20:47:22",
+        "cpu_percent": 19.3,
+        "memory_percent": 81.4,
+        "disk_usage_percent": 6.01
+      },
+      {
+        "timestamp": "2025-08-29 20:47:21",
+        "cpu_percent": 17.5,
+        "memory_percent": 81.9,
+        "disk_usage_percent": 6.01
+      }
+    ],
+    "api_history": [
+      {
+        "endpoint": "/api/status",
+        "avg_response_time_ms": 2.6,
+        "total_requests": 2,
+        "successful_requests": 2,
+        "success_rate": 100.0
+      },
+      {
+        "endpoint": "/hbys/health",
+        "avg_response_time_ms": 1.94,
+        "total_requests": 2,
+        "successful_requests": 2,
+        "success_rate": 100.0
+      },
+      {
+        "endpoint": "/health",
+        "avg_response_time_ms": 9.52,
+        "total_requests": 2,
+        "successful_requests": 2,
+        "success_rate": 100.0
+      },
+      {
+        "endpoint": "/intake/all-patients",
+        "avg_response_time_ms": 3.07,
+        "total_requests": 2,
+        "successful_requests": 2,
+        "success_rate": 100.0
+      },
+      {
+        "endpoint": "/monai/models",
+        "avg_response_time_ms": 1.8,
+        "total_requests": 2,
+        "successful_requests": 2,
+        "success_rate": 100.0
+      },
+      {
+        "endpoint": "/patients/",
+        "avg_response_time_ms": 2.91,
+        "total_requests": 2,
+        "successful_requests": 2,
+        "success_rate": 100.0
+      }
+    ],
+    "recent_errors": [
+      {
+        "timestamp": "2025-08-29 20:47:22",
+        "error_type": "API_TEST",
+        "error_message": "HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106d8a150>: Failed to establish a new connection: [Errno 61] Connection refused'))",
+        "source": "GET /health",
+        "severity": "ERROR"
+      },
+      {
+        "timestamp": "2025-08-29 20:47:22",
+        "error_type": "API_TEST",
+        "error_message": "HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /api/status (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106d89a00>: Failed to establish a new connection: [Errno 61] Connection refused'))",
+        "source": "GET /api/status",
+        "severity": "ERROR"
+      },
+      {
+        "timestamp": "2025-08-29 20:47:22",
+        "error_type": "API_TEST",
+        "error_message": "HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /patients/ (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106d88ec0>: Failed to establish a new connection: [Errno 61] Connection refused'))",
+        "source": "GET /patients/",
+        "severity": "ERROR"
+      },
+      {
+        "timestamp": "2025-08-29 20:47:22",
+        "error_type": "API_TEST",
+        "error_message": "HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /intake/all-patients (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106d88830>: Failed to establish a new connection: [Errno 61] Connection refused'))",
+        "source": "GET /intake/all-patients",
+        "severity": "ERROR"
+      },
+      {
+        "timestamp": "2025-08-29 20:47:22",
+        "error_type": "API_TEST",
+        "error_message": "HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /hbys/health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106d8a8d0>: Failed to establish a new connection: [Errno 61] Connection refused'))",
+        "source": "GET /hbys/health",
+        "severity": "ERROR"
+      },
+      {
+        "timestamp": "2025-08-29 20:47:22",
+        "error_type": "API_TEST",
+        "error_message": "HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /monai/models (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106d53a10>: Failed to establish a new connection: [Errno 61] Connection refused'))",
+        "source": "GET /monai/models",
+        "severity": "ERROR"
+      },
+      {
+        "timestamp": "2025-08-29 20:47:21",
+        "error_type": "API_TEST",
+        "error_message": "HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106d883e0>: Failed to establish a new connection: [Errno 61] Connection refused'))",
+        "source": "GET /health",
+        "severity": "ERROR"
+      },
+      {
+        "timestamp": "2025-08-29 20:47:21",
+        "error_type": "API_TEST",
+        "error_message": "HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /api/status (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1057c22d0>: Failed to establish a new connection: [Errno 61] Connection refused'))",
+        "source": "GET /api/status",
+        "severity": "ERROR"
+      },
+      {
+        "timestamp": "2025-08-29 20:47:21",
+        "error_type": "API_TEST",
+        "error_message": "HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /patients/ (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106d88350>: Failed to establish a new connection: [Errno 61] Connection refused'))",
+        "source": "GET /patients/",
+        "severity": "ERROR"
+      },
+      {
+        "timestamp": "2025-08-29 20:47:21",
+        "error_type": "API_TEST",
+        "error_message": "HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /intake/all-patients (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106d890a0>: Failed to establish a new connection: [Errno 61] Connection refused'))",
+        "source": "GET /intake/all-patients",
+        "severity": "ERROR"
+      },
+      {
+        "timestamp": "2025-08-29 20:47:21",
+        "error_type": "API_TEST",
+        "error_message": "HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /hbys/health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106d896d0>: Failed to establish a new connection: [Errno 61] Connection refused'))",
+        "source": "GET /hbys/health",
+        "severity": "ERROR"
+      },
+      {
+        "timestamp": "2025-08-29 20:47:21",
+        "error_type": "API_TEST",
+        "error_message": "HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /monai/models (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106d89f70>: Failed to establish a new connection: [Errno 61] Connection refused'))",
+        "source": "GET /monai/models",
+        "severity": "ERROR"
+      }
+    ],
+    "generated_at": "2025-08-29T23:47:49.134639"
+  }
+}

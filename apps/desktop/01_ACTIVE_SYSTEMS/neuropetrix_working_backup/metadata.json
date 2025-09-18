@@ -1,0 +1,5 @@
+{
+  "name": "NeuroPETrix",
+  "description": "NeuroPETrix is a modular clinical decision support system designed to assist medical professionals in clinical decision-making processes with AI-powered, multi-layered, and evidence-based support. It analyzes text, medical images (PET/CT, MRI), and structured data to provide patient-specific, actionable decision recommendations.",
+  "requestFramePermissions": []
+}

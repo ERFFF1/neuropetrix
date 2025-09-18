@@ -1,0 +1,465 @@
+/* Modern NeuroPETrix UI Styles v2.0 */
+
+/* Global variables */
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --info-color: #3b82f6;
+    
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-hero: #f2f6ff;
+    
+    --text-primary: #1e293b;
+    --text-secondary: #334155;
+    --text-muted: #6b7280;
+    
+    --border-color: #e2e8f0;
+    --border-light: #f1f5f9;
+    
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.03);
+    --shadow-md: 0 4px 6px rgba(0,0,0,.05);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,.1);
+    --shadow-xl: 0 20px 25px rgba(0,0,0,.15);
+}
+
+/* Dark mode variables */
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-card: #1e293b;
+    --bg-hero: #1e293b;
+    
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    
+    --border-color: #334155;
+    --border-light: #475569;
+}
+
+/* Sayfa genişliğini ortala */
+.block-container { 
+    max-width: 1180px; 
+    padding-top: 1.2rem; 
+}
+
+/* Hero başlık satırı */
+.hero {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    padding: 1.5rem 1.8rem; 
+    border-radius: 20px; 
+    background: var(--bg-hero);
+    border: 1px solid var(--border-light);
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.hero:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.hero h1 {
+    margin: 0; 
+    font-size: 2.1rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.hero .subtitle {
+    color: var(--text-secondary); 
+    margin-top: 8px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* Status badges */
+.badge {
+    padding: 8px 14px; 
+    border-radius: 999px; 
+    font-weight: 600; 
+    font-size: 0.9rem;
+    border: 1px solid var(--border-light); 
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    display: inline-block;
+    margin-left: 10px;
+    transition: all 0.2s ease;
+}
+
+.badge:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.badge.ok { 
+    background: #ecfdf5; 
+    border-color: #bbf7d0; 
+    color: #166534;
+}
+
+.badge.warning { 
+    background: #fef3c7; 
+    border-color: #fcd34d; 
+    color: #92400e;
+}
+
+.badge.error { 
+    background: #fee2e2; 
+    border-color: #fca5a5; 
+    color: #991b1b;
+}
+
+.badge.info {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    color: #1e40af;
+}
+
+/* Grid kartlar */
+.card {
+    border-radius: 20px; 
+    padding: 20px; 
+    border: 1px solid var(--border-color);
+    background: var(--bg-card); 
+    transition: all 0.3s ease; 
+    height: 100%;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover { 
+    transform: translateY(-4px); 
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-color);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card h3 { 
+    margin: 0 0 0.5rem 0; 
+    font-size: 1.1rem; 
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.card p { 
+    color: var(--text-secondary); 
+    font-size: 0.95rem; 
+    margin: 0.2rem 0 1rem 0; 
+    line-height: 1.5;
+}
+
+.card .icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    opacity: 0.8;
+}
+
+.card strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Buton stilleri */
+.stButton > button {
+    padding: 0.7rem 1.2rem; 
+    border-radius: 14px; 
+    font-weight: 600;
+    border: 1px solid var(--border-color); 
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    width: 100%;
+    font-size: 0.95rem;
+    letter-spacing: 0.025em;
+}
+
+.stButton > button:hover { 
+    background: var(--primary-color); 
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.stButton > button:active {
+    transform: translateY(0);
+}
+
+/* Primary butonlar */
+.stButton > button[data-baseweb="button"] {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.stButton > button[data-baseweb="button"]:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+/* Sol menü başlığını güçlendir */
+section[data-testid="stSidebar"] .css-10trblm, 
+.sidebar-title {
+    font-weight: 800 !important; 
+    letter-spacing: 0.2px;
+    color: var(--text-primary);
+}
+
+/* Sidebar styling */
+[data-testid="stSidebar"] {
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+}
+
+/* Ana içerik alanı */
+.main .block-container {
+    background: var(--bg-primary);
+}
+
+/* Başlık stilleri */
+h1, h2, h3 {
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+/* Metin stilleri */
+p, div {
+    color: var(--text-secondary);
+}
+
+/* Form elemanları */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea,
+.stSelectbox > div > div > select {
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    padding: 12px 16px;
+    transition: all 0.3s ease;
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus,
+.stSelectbox > div > div > select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
+
+/* Toggle switch */
+.stToggle > div > div {
+    background: var(--border-color);
+}
+
+.stToggle > div > div[aria-checked="true"] {
+    background: var(--primary-color);
+}
+
+/* Success/Error mesajları */
+.stSuccess {
+    background: #ecfdf5;
+    border: 1px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 16px;
+    color: #166534;
+}
+
+.stError {
+    background: #fee2e2;
+    border: 1px solid #fca5a5;
+    border-radius: 12px;
+    padding: 16px;
+    color: #991b1b;
+}
+
+/* Info kutuları */
+.stInfo {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+    padding: 16px;
+    color: #1e40af;
+}
+
+/* Warning kutuları */
+.stWarning {
+    background: #fef3c7;
+    border: 1px solid #fcd34d;
+    border-radius: 12px;
+    padding: 16px;
+    color: #92400e;
+}
+
+/* Progress bars */
+.stProgress > div > div > div > div {
+    background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+    border-radius: 999px;
+}
+
+/* Metrics */
+.stMetric {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stMetric:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Charts */
+.plotly-graph-div {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+/* Navigation improvements */
+.stButton > button[data-testid="baseButton-secondary"] {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.stButton > button[data-testid="baseButton-secondary"]:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+    .block-container {
+        max-width: 100%;
+        padding: 1rem;
+    }
+    
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 1.2rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+        padding: 16px;
+    }
+    
+    .badge {
+        margin: 5px 0;
+        display: block;
+        text-align: center;
+    }
+}
+
+/* Dark mode toggle animation */
+.dark-mode-toggle {
+    transition: all 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    transform: rotate(180deg);
+}
+
+/* Loading animations */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.loading {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth transitions */
+* {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* Focus states */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Hover effects for interactive elements */
+.stButton > button:hover,
+.card:hover,
+.badge:hover {
+    cursor: pointer;
+}
+
+/* Print styles */
+@media print {
+    .hero,
+    .sidebar,
+    .stButton {
+        display: none !important;
+    }
+    
+    .card {
+        border: 1px solid #000;
+        box-shadow: none;
+        break-inside: avoid;
+    }
+}
+
+

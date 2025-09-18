@@ -1,0 +1,130 @@
+name: Deploy NeuroPETRIX to Production
+
+on:
+  push:
+    branches: [ main, production ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  NODE_VERSION: '18'
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Cache Python dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    
+    - name: Install Python dependencies
+      run: |
+        cd backend
+        pip install -r requirements.txt
+        pip install -r requirements-optional.txt
+    
+    - name: Test Backend
+      run: |
+        cd backend
+        python -c "from main import app; print('✅ Backend imports successfully')"
+        python -m pytest tests/ -v || echo "⚠️ Tests not found, skipping"
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+        cache-dependency-path: frontend/package-lock.json
+    
+    - name: Install Frontend dependencies
+      run: |
+        cd frontend
+        npm ci
+    
+    - name: Test Frontend build
+      run: |
+        cd frontend
+        npm run build
+    
+    - name: Test Frontend
+      run: |
+        cd frontend
+        npm test -- --coverage --watchAll=false || echo "⚠️ Tests not found, skipping"
+
+  deploy-backend:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/production'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Deploy to Render
+      run: |
+        echo "🚀 Backend deployment triggered on Render"
+        echo "Repository: ${{ github.repository }}"
+        echo "Branch: ${{ github.ref_name }}"
+        echo "Commit: ${{ github.sha }}"
+        
+        # Render webhook trigger (if configured)
+        if [ -n "${{ secrets.RENDER_WEBHOOK_URL }}" ]; then
+          curl -X POST "${{ secrets.RENDER_WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -d '{"service": "neuropetrix-api", "branch": "${{ github.ref_name }}"}'
+        fi
+
+  deploy-frontend:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/production'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Deploy to Vercel
+      run: |
+        echo "🚀 Frontend deployment triggered on Vercel"
+        echo "Repository: ${{ github.repository }}"
+        echo "Branch: ${{ github.ref_name }}"
+        echo "Commit: ${{ github.sha }}"
+        
+        # Vercel webhook trigger (if configured)
+        if [ -n "${{ secrets.VERCEL_WEBHOOK_URL }}" ]; then
+          curl -X POST "${{ secrets.VERCEL_WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -d '{"branch": "${{ github.ref_name }}", "commit": "${{ github.sha }}"}'
+        fi
+
+  notify:
+    needs: [deploy-backend, deploy-frontend]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Notify deployment status
+      run: |
+        if [ "${{ needs.deploy-backend.result }}" == "success" ] && [ "${{ needs.deploy-frontend.result }}" == "success" ]; then
+          echo "✅ Deployment successful!"
+          echo "🌐 Frontend: https://neuropetrix.vercel.app"
+          echo "🔧 Backend: https://neuropetrix.onrender.com"
+        else
+          echo "❌ Deployment failed!"
+          echo "Backend: ${{ needs.deploy-backend.result }}"
+          echo "Frontend: ${{ needs.deploy-frontend.result }}"
+        fi

@@ -1,0 +1,52 @@
+{
+  "patient_id": "NPX-003",
+  "report_id": "RPT-NPX-003-20250901-230241",
+  "generated_at": "2025-09-01 23:02:41.642014",
+  "tsnm_report": {
+    "patient_id": "NPX-003",
+    "icd10": "C81.9",
+    "clinical_goal": "lymphoma_followup",
+    "findings": "No imaging data available for findings generation",
+    "percist_category": null,
+    "deauville_score": null,
+    "ai_conclusion": "Lymphoma follow-up assessment completed. Deauville scoring requires imaging data.",
+    "qc_flags": [],
+    "report_type": "TSNM",
+    "generated_at": "2025-09-01T23:02:41.641959"
+  },
+  "annex_report": {
+    "pico_question": null,
+    "grade_summary": null,
+    "references": [],
+    "toxicity_notes": null,
+    "evidence_level": null,
+    "report_type": "Evidence Annex",
+    "generated_at": "2025-09-01T23:02:41.641968"
+  },
+  "fhir_report": {
+    "diagnostic_report": {
+      "resourceType": "DiagnosticReport",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "18748-4",
+            "display": "Diagnostic imaging study report"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/NPX-003"
+      },
+      "effectiveDateTime": "2025-09-01T23:02:41.641971",
+      "issued": "2025-09-01T23:02:41.641972",
+      "result": []
+    },
+    "observations": [],
+    "report_type": "FHIR",
+    "generated_at": "2025-09-01T23:02:41.641974"
+  },
+  "status": "completed",
+  "processing_time": 0.00031280517578125
+}

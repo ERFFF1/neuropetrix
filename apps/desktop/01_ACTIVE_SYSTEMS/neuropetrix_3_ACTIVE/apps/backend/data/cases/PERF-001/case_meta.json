@@ -1,0 +1,10 @@
+{
+  "patient_id": "PERF-001",
+  "icd10": "C34.9",
+  "clinical_goal": "staging",
+  "intake_timestamp": "2025-09-01T23:00:52.081553",
+  "status": "intake_completed",
+  "imaging_available": false,
+  "evidence_built": false,
+  "report_generated": false
+}

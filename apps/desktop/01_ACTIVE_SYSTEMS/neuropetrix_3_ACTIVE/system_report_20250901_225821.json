@@ -1,0 +1,202 @@
+{
+  "health_status": {
+    "overall_status": "warning",
+    "timestamp": "2025-09-01T22:58:20.430821",
+    "system_metrics": {
+      "timestamp": "2025-09-01T22:58:20.196220",
+      "cpu_percent": 13.1,
+      "memory_percent": 81.7,
+      "memory_available_gb": 1.47,
+      "disk_usage_percent": 6.01,
+      "disk_free_gb": 17.5,
+      "network_bytes_sent": 2842589184,
+      "network_bytes_recv": 342018048
+    },
+    "api_metrics": {
+      "tested_endpoints": 6,
+      "successful": 6,
+      "failed": 0,
+      "average_response_time": 37.42,
+      "endpoint_results": [
+        {
+          "endpoint": "GET /health",
+          "response_time_ms": 8.26,
+          "status_code": 200,
+          "success": true
+        },
+        {
+          "endpoint": "GET /api/status",
+          "response_time_ms": 2.4,
+          "status_code": 200,
+          "success": true
+        },
+        {
+          "endpoint": "GET /patients/",
+          "response_time_ms": 2.92,
+          "status_code": 200,
+          "success": true
+        },
+        {
+          "endpoint": "GET /intake/all-patients",
+          "response_time_ms": 2.17,
+          "status_code": 200,
+          "success": true
+        },
+        {
+          "endpoint": "GET /hbys/health",
+          "response_time_ms": 204.84,
+          "status_code": 200,
+          "success": true
+        },
+        {
+          "endpoint": "GET /monai/models",
+          "response_time_ms": 3.93,
+          "status_code": 200,
+          "success": true
+        }
+      ],
+      "success_rate": 100.0
+    },
+    "warnings": [
+      "Elevated memory usage"
+    ],
+    "errors": [],
+    "uptime_hours": 210.44
+  },
+  "performance_report": {
+    "report_timestamp": "2025-09-01T22:58:21.673335",
+    "overall_performance": {
+      "score": 90,
+      "grade": "A",
+      "status": "warning"
+    },
+    "current_metrics": {
+      "system": {
+        "timestamp": "2025-09-01T22:58:21.436731",
+        "cpu_percent": 28.3,
+        "memory_percent": 81.6,
+        "memory_available_gb": 1.47,
+        "disk_usage_percent": 6.01,
+        "disk_free_gb": 17.51,
+        "network_bytes_sent": 2842614784,
+        "network_bytes_recv": 342040576
+      },
+      "api": {
+        "tested_endpoints": 6,
+        "successful": 6,
+        "failed": 0,
+        "average_response_time": 36.9,
+        "endpoint_results": [
+          {
+            "endpoint": "GET /health",
+            "response_time_ms": 3.87,
+            "status_code": 200,
+            "success": true
+          },
+          {
+            "endpoint": "GET /api/status",
+            "response_time_ms": 2.94,
+            "status_code": 200,
+            "success": true
+          },
+          {
+            "endpoint": "GET /patients/",
+            "response_time_ms": 3.81,
+            "status_code": 200,
+            "success": true
+          },
+          {
+            "endpoint": "GET /intake/all-patients",
+            "response_time_ms": 3.62,
+            "status_code": 200,
+            "success": true
+          },
+          {
+            "endpoint": "GET /hbys/health",
+            "response_time_ms": 203.47,
+            "status_code": 200,
+            "success": true
+          },
+          {
+            "endpoint": "GET /monai/models",
+            "response_time_ms": 3.68,
+            "status_code": 200,
+            "success": true
+          }
+        ],
+        "success_rate": 100.0
+      }
+    },
+    "historical_summary": {
+      "data_points": 2,
+      "api_endpoints_monitored": 6,
+      "recent_errors_count": 0
+    },
+    "recommendations": [
+      "Monitor memory leaks and consider increasing RAM or implementing caching"
+    ]
+  },
+  "historical_data": {
+    "time_range_hours": 6,
+    "system_history": [
+      {
+        "timestamp": "2025-09-01 19:58:21",
+        "cpu_percent": 28.3,
+        "memory_percent": 81.6,
+        "disk_usage_percent": 6.01
+      },
+      {
+        "timestamp": "2025-09-01 19:58:20",
+        "cpu_percent": 13.1,
+        "memory_percent": 81.7,
+        "disk_usage_percent": 6.01
+      }
+    ],
+    "api_history": [
+      {
+        "endpoint": "/api/status",
+        "avg_response_time_ms": 2.67,
+        "total_requests": 2,
+        "successful_requests": 2,
+        "success_rate": 100.0
+      },
+      {
+        "endpoint": "/hbys/health",
+        "avg_response_time_ms": 204.16,
+        "total_requests": 2,
+        "successful_requests": 2,
+        "success_rate": 100.0
+      },
+      {
+        "endpoint": "/health",
+        "avg_response_time_ms": 6.06,
+        "total_requests": 2,
+        "successful_requests": 2,
+        "success_rate": 100.0
+      },
+      {
+        "endpoint": "/intake/all-patients",
+        "avg_response_time_ms": 2.89,
+        "total_requests": 2,
+        "successful_requests": 2,
+        "success_rate": 100.0
+      },
+      {
+        "endpoint": "/monai/models",
+        "avg_response_time_ms": 3.81,
+        "total_requests": 2,
+        "successful_requests": 2,
+        "success_rate": 100.0
+      },
+      {
+        "endpoint": "/patients/",
+        "avg_response_time_ms": 3.37,
+        "total_requests": 2,
+        "successful_requests": 2,
+        "success_rate": 100.0
+      }
+    ],
+    "recent_errors": [],
+    "generated_at": "2025-09-01T22:58:21.674399"
+  }
+}

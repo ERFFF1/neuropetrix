@@ -1,0 +1,24 @@
+{
+  "patient_id": "string",
+  "study_uid": "string",
+  "icd10": "string",
+  "clinical_goal": "staging|response|lymphoma_followup",
+  "pico": {
+    "P": "string",
+    "I": "FDG PET/CT",
+    "C": "string",
+    "O": "string"
+  },
+  "hints": {
+    "structures_of_interest": ["string"]
+  },
+  "acquisition": {
+    "tracer": "FDG",
+    "dose_MBq": "number",
+    "blood_glucose_mgdl": "number",
+    "uptake_time_min": "number"
+  },
+  "created_at": "datetime"
+}
+
+

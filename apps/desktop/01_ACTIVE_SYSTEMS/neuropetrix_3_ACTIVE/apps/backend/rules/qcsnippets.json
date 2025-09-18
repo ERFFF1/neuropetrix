@@ -1,0 +1,27 @@
+{
+  "glisemi": {
+    "high": "⚠️ Yüksek glisemi (>200 mg/dL) - FDG uptake etkilenebilir",
+    "normal": "✓ Glisemi normal (<200 mg/dL)",
+    "low": "⚠️ Düşük glisemi (<70 mg/dL) - hasta durumu kontrol edilmeli"
+  },
+  "uptake_time": {
+    "early": "⚠️ Erken uptake (<50 min) - standart değerlerle karşılaştırma dikkatli yapılmalı",
+    "normal": "✓ Uptake zamanı normal (50-70 min)",
+    "late": "⚠️ Geç uptake (>80 min) - background artışı olabilir"
+  },
+  "slice_thickness": {
+    "thick": "⚠️ Kalın slice (>5mm) - küçük lezyonlar kaçabilir",
+    "normal": "✓ Slice kalınlığı normal (3-5mm)",
+    "thin": "✓ İnce slice (<3mm) - yüksek çözünürlük"
+  },
+  "motion": {
+    "detected": "⚠️ Hareket artefaktı tespit edildi - görüntü kalitesi etkilenmiş",
+    "minimal": "✓ Minimal hareket - görüntü kalitesi kabul edilebilir",
+    "none": "✓ Hareket yok - optimal görüntü kalitesi"
+  },
+  "attenuation": {
+    "metal": "⚠️ Metal artefaktı - attenuation correction etkilenmiş",
+    "normal": "✓ Attenuation correction normal",
+    "failed": "❌ Attenuation correction başarısız - görüntü yeniden işlenmeli"
+  }
+}

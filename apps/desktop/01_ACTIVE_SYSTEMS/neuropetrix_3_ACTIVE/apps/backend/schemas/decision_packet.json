@@ -1,0 +1,16 @@
+{
+  "case_id": "string",
+  "ai_conclusion": "string",
+  "rationale_keys": ["string"],
+  "optional": {
+    "percist": "PMR|SMD|PMD|SDP",
+    "deauville": "number",
+    "qc_flags": ["string"],
+    "grade_summary": "string",
+    "refs": ["string"]
+  },
+  "created_at": "datetime",
+  "model_version": "string"
+}
+
+

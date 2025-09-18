@@ -1,0 +1,83 @@
+{
+  "template_type": "fdg_pet_ct",
+  "template_name": "FDG PET/BT - Onkoloji",
+  "file_id": "2020-0032",
+  "generation_date": "2025-08-17T04:34:53.474199",
+  "sections": {
+    "hasta_kimligi": {
+      "hasta_no": "H001",
+      "yas": 44,
+      "cinsiyet": "Erkek",
+      "anonim_hash": "Hash üretilemedi",
+      "calisma_tarihi": "2025-08-17"
+    },
+    "on_tani_endikasyon": {
+      "icd_kodu": "C34.90",
+      "klinik_tani": "Akciğer nodülü, metastaz şüphesi",
+      "endikasyon": "ICD: C34.90 - Akciğer nodülü, metastaz şüphesi. FDG PET/BT ile evreleme ve tedavi yanıtı değerlendirmesi.",
+      "oncelik": "Rutin"
+    },
+    "yontem": {
+      "yontem": "FDG PET/BT incelemesi - Standart protokol uygulanmıştır",
+      "tracer": "F-18 FDG",
+      "injection_dose": 185.0,
+      "uptake_time": 60,
+      "suv_scale": "BW"
+    },
+    "bulgular": {
+      "risk_degerlendirmesi": {
+        "risk_level": "Yüksek",
+        "suv_max": 7.8,
+        "suv_mean": 4.2,
+        "yorum": "Yüksek SUVmax değeri ile malignite şüphesi"
+      },
+      "anatomik_bulgular": {
+        "abdomen": "Orta boyut lezyon - abdominal bölgede tutulum"
+      },
+      "otomatik_varyasyon": "Fokal artmış FDG tutulumu izlenmiştir"
+    },
+    "suvmax_tablosu": {
+      "suv_values": {
+        "suv_max": 7.8,
+        "suv_mean": 4.2,
+        "suv_min": 0,
+        "suv_std": 0
+      },
+      "texture_features": {
+        "entropy": 3.45,
+        "energy": 0.12,
+        "contrast": 2.1
+      },
+      "volume_info": {
+        "volume_ml": 45.2,
+        "dice_score": 0.87
+      }
+    },
+    "karsilastirma": {
+      "content": "karsilastirma bölümü - AI analizi bekleniyor"
+    },
+    "sonuc": {
+      "risk_level": "High",
+      "prognosis": "Intermediate",
+      "recommendations": [
+        "Biopsy recommended - high SUVmax (7.8)",
+        "Follow-up PET-CT in 1 month",
+        "Consider neoadjuvant therapy"
+      ],
+      "confidence_score": 0.89,
+      "otomatik_yorum": "Kısmi yanıt izlenmiştir"
+    },
+    "ek_oneriler": {
+      "ai_recommendations": [
+        "Biopsy recommended - high SUVmax (7.8)",
+        "Follow-up PET-CT in 1 month",
+        "Consider neoadjuvant therapy"
+      ],
+      "literature_support": [
+        "NCCN Guidelines v2.2024 - SUV >5.0 suggests high risk",
+        "ESMO Clinical Practice Guidelines - PET-CT in staging"
+      ],
+      "additional_notes": "Bu öneriler AI analizi ve literatür taraması sonucunda üretilmiştir"
+    }
+  }
+}

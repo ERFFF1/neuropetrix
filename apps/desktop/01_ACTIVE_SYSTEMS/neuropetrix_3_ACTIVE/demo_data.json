@@ -1,0 +1,66 @@
+{
+  "demo_cases": [
+    {
+      "id": "demo_case_001",
+      "patientName": "Ahmet Yılmaz",
+      "age": 65,
+      "gender": "Erkek",
+      "diagnosis": "Alzheimer Demansı",
+      "symptoms": ["Hafıza kaybı", "Oryantasyon bozukluğu", "Günlük aktivitelerde zorluk"],
+      "dicomFiles": ["brain_scan_001.dcm", "brain_scan_002.dcm"],
+      "aiAnalysis": {
+        "summary": "PET görüntülerinde bilateral temporal ve parietal loblarda hipometabolizm tespit edildi.",
+        "differentialDiagnosis": [
+          "Alzheimer Demansı (En olası)",
+          "Vasküler Demans",
+          "Frontotemporal Demans"
+        ],
+        "suggestions": [
+          "Nöropsikolojik testler",
+          "B12 ve folik asit düzeyleri",
+          "Tiroid fonksiyon testleri"
+        ]
+      },
+      "status": "completed",
+      "createdAt": "2025-09-05T15:30:00Z"
+    },
+    {
+      "id": "demo_case_002",
+      "patientName": "Fatma Demir",
+      "age": 58,
+      "gender": "Kadın",
+      "diagnosis": "Parkinson Hastalığı",
+      "symptoms": ["Tremor", "Bradikinezi", "Rijidite"],
+      "dicomFiles": ["brain_scan_003.dcm"],
+      "aiAnalysis": {
+        "summary": "Substantia nigra'da dopaminerjik nöron kaybı ve striatal dopamin transportunda azalma görüldü.",
+        "differentialDiagnosis": [
+          "Parkinson Hastalığı (En olası)",
+          "Essential Tremor",
+          "Multiple System Atrophy"
+        ],
+        "suggestions": [
+          "Levodopa testi",
+          "DAT scan",
+          "Nörolojik muayene"
+        ]
+      },
+      "status": "in_progress",
+      "createdAt": "2025-09-05T14:45:00Z"
+    }
+  ],
+  "demo_users": [
+    {
+      "id": "demo_user_001",
+      "name": "Dr. Mehmet Özkan",
+      "role": "Nörolog",
+      "department": "Nöroloji"
+    },
+    {
+      "id": "demo_user_002", 
+      "name": "Dr. Ayşe Kaya",
+      "role": "Radyolog",
+      "department": "Radyoloji"
+    }
+  ]
+}

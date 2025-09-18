@@ -1,0 +1,29 @@
+{
+  "name": "neuropetrix-monorepo",
+  "version": "1.0.0",
+  "description": "Neuropetrix - Complete AI System Monorepo",
+  "scripts": {
+    "dev": "bash scripts/run.sh",
+    "backend": "cd apps/backend && source ../../.venv/bin/activate && uvicorn main:app --reload --port 8000",
+    "worker": "cd apps/worker && source ../../.venv/bin/activate && python worker.py",
+    "frontend": "cd apps/frontend && npm run dev",
+    "streamlit": "cd apps/frontend && source ../../.venv/bin/activate && streamlit run streamlit_app.py --server.port 8501",
+    "install": "bash scripts/run.sh",
+    "test": "cd apps/backend && source ../../.venv/bin/activate && python -m pytest",
+    "build": "cd apps/frontend && npm run build",
+    "clean": "rm -rf .venv node_modules apps/*/node_modules apps/*/__pycache__ apps/*/.pytest_cache"
+  },
+  "keywords": [
+    "neuropetrix",
+    "ai",
+    "medical",
+    "imaging",
+    "monorepo"
+  ],
+  "author": "Neuropetrix Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

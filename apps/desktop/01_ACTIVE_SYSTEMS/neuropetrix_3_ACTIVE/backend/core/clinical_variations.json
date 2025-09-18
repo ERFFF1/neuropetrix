@@ -1,0 +1,229 @@
+{
+  "clinical_variations": {
+    "head_neck": {
+      "physiological": {
+        "brain": [
+          "Beyin dokusu normal FDG uptake göstermektedir.",
+          "Serebral korteks ve bazal ganglionlarda simetrik FDG dağılımı izlenmektedir.",
+          "Beyin sapı ve serebellumda fizyolojik FDG uptake mevcuttur."
+        ],
+        "salivary_glands": [
+          "Parotis, submandibuler ve sublingual bezlerde bilateral simetrik FDG uptake izlenmektedir.",
+          "Tükrük bezlerinde fizyolojik FDG aktivitesi mevcuttur.",
+          "Parotis bezlerinde hafif asimetrik uptake normal varyasyon olarak değerlendirilmiştir."
+        ],
+        "thyroid": [
+          "Tiroid bezinde hafif diffüz FDG uptake izlenmektedir.",
+          "Tiroid dokusunda fizyolojik FDG aktivitesi mevcuttur.",
+          "Tiroid bezinde minimal heterojen uptake normal varyasyon olarak değerlendirilmiştir."
+        ],
+        "muscles": [
+          "Çiğneme kaslarında bilateral simetrik FDG uptake izlenmektedir.",
+          "Boyun kaslarında fizyolojik FDG aktivitesi mevcuttur.",
+          "Dil kaslarında hafif FDG uptake normal varyasyon olarak değerlendirilmiştir."
+        ]
+      },
+      "pathological": {
+        "tumor": [
+          "SUVmax {suv_max:.1f} olan primer tümör lezyonu tespit edilmiştir.",
+          "SUVmax {suv_max:.1f} olan şüpheli tümör lezyonu izlenmektedir.",
+          "SUVmax {suv_max:.1f} olan malign lezyon saptanmıştır."
+        ],
+        "lymph_nodes": [
+          "SUVmax {suv_max:.1f} olan lenf nodu metastazı tespit edilmiştir.",
+          "SUVmax {suv_max:.1f} olan şüpheli lenf nodu lezyonu izlenmektedir.",
+          "SUVmax {suv_max:.1f} olan bölgesel lenf nodu tutulumu saptanmıştır."
+        ],
+        "metastasis": [
+          "SUVmax {suv_max:.1f} olan uzak metastaz tespit edilmiştir.",
+          "SUVmax {suv_max:.1f} olan şüpheli metastatik lezyon izlenmektedir.",
+          "SUVmax {suv_max:.1f} olan sekonder lezyon saptanmıştır."
+        ]
+      }
+    },
+    "thorax": {
+      "physiological": {
+        "heart": [
+          "Kalp kasında fizyolojik FDG uptake izlenmektedir.",
+          "Myokardda hafif FDG aktivitesi mevcuttur.",
+          "Kalp dokusunda minimal FDG uptake normal varyasyon olarak değerlendirilmiştir."
+        ],
+        "lungs": [
+          "Akciğer parankiminde minimal FDG uptake izlenmektedir.",
+          "Akciğer dokusunda fizyolojik FDG aktivitesi mevcuttur.",
+          "Akciğer parankiminde hafif heterojen uptake normal varyasyon olarak değerlendirilmiştir."
+        ],
+        "esophagus": [
+          "Özofagusta hafif FDG uptake izlenmektedir.",
+          "Özofagus duvarında fizyolojik FDG aktivitesi mevcuttur.",
+          "Özofagusta minimal FDG uptake normal varyasyon olarak değerlendirilmiştir."
+        ],
+        "mediastinum": [
+          "Mediastinal lenf nodlarında hafif FDG uptake izlenmektedir.",
+          "Mediastinumda fizyolojik FDG aktivitesi mevcuttur.",
+          "Mediastinal dokularda minimal FDG uptake normal varyasyon olarak değerlendirilmiştir."
+        ]
+      },
+      "pathological": {
+        "tumor": [
+          "SUVmax {suv_max:.1f} olan primer akciğer tümörü tespit edilmiştir.",
+          "SUVmax {suv_max:.1f} olan şüpheli pulmoner lezyon izlenmektedir.",
+          "SUVmax {suv_max:.1f} olan malign akciğer lezyonu saptanmıştır."
+        ],
+        "lymph_nodes": [
+          "SUVmax {suv_max:.1f} olan mediastinal lenf nodu metastazı tespit edilmiştir.",
+          "SUVmax {suv_max:.1f} olan şüpheli hiler lenf nodu lezyonu izlenmektedir.",
+          "SUVmax {suv_max:.1f} olan bölgesel lenf nodu tutulumu saptanmıştır."
+        ],
+        "metastasis": [
+          "SUVmax {suv_max:.1f} olan uzak akciğer metastazı tespit edilmiştir.",
+          "SUVmax {suv_max:.1f} olan şüpheli pulmoner metastatik lezyon izlenmektedir.",
+          "SUVmax {suv_max:.1f} olan sekonder akciğer lezyonu saptanmıştır."
+        ]
+      }
+    },
+    "abdomen": {
+      "physiological": {
+        "liver": [
+          "Karaciğerde hafif heterojen FDG uptake izlenmektedir.",
+          "Karaciğer dokusunda fizyolojik FDG aktivitesi mevcuttur.",
+          "Karaciğerde minimal FDG uptake normal varyasyon olarak değerlendirilmiştir."
+        ],
+        "kidneys": [
+          "Böbreklerde bilateral simetrik FDG uptake izlenmektedir.",
+          "Böbrek dokusunda fizyolojik FDG aktivitesi mevcuttur.",
+          "Böbreklerde hafif FDG uptake normal varyasyon olarak değerlendirilmiştir."
+        ],
+        "spleen": [
+          "Dalakta hafif FDG uptake izlenmektedir.",
+          "Dalak dokusunda fizyolojik FDG aktivitesi mevcuttur.",
+          "Dalakta minimal FDG uptake normal varyasyon olarak değerlendirilmiştir."
+        ],
+        "bowel": [
+          "Bağırsaklarda hafif heterojen FDG uptake izlenmektedir.",
+          "Bağırsak duvarında fizyolojik FDG aktivitesi mevcuttur.",
+          "Bağırsaklarda minimal FDG uptake normal varyasyon olarak değerlendirilmiştir."
+        ]
+      },
+      "pathological": {
+        "tumor": [
+          "SUVmax {suv_max:.1f} olan primer karın içi tümörü tespit edilmiştir.",
+          "SUVmax {suv_max:.1f} olan şüpheli abdominal lezyon izlenmektedir.",
+          "SUVmax {suv_max:.1f} olan malign karın içi lezyonu saptanmıştır."
+        ],
+        "lymph_nodes": [
+          "SUVmax {suv_max:.1f} olan retroperitoneal lenf nodu metastazı tespit edilmiştir.",
+          "SUVmax {suv_max:.1f} olan şüpheli abdominal lenf nodu lezyonu izlenmektedir.",
+          "SUVmax {suv_max:.1f} olan bölgesel lenf nodu tutulumu saptanmıştır."
+        ],
+        "metastasis": [
+          "SUVmax {suv_max:.1f} olan uzak karın içi metastazı tespit edilmiştir.",
+          "SUVmax {suv_max:.1f} olan şüpheli abdominal metastatik lezyon izlenmektedir.",
+          "SUVmax {suv_max:.1f} olan sekonder karın içi lezyonu saptanmıştır."
+        ]
+      }
+    },
+    "pelvis": {
+      "physiological": {
+        "bladder": [
+          "Mesanede hafif FDG uptake izlenmektedir.",
+          "Mesane duvarında fizyolojik FDG aktivitesi mevcuttur.",
+          "Mesanede minimal FDG uptake normal varyasyon olarak değerlendirilmiştir."
+        ],
+        "reproductive_organs": [
+          "Üreme organlarında hafif FDG uptake izlenmektedir.",
+          "Üreme organlarında fizyolojik FDG aktivitesi mevcuttur.",
+          "Üreme organlarında minimal FDG uptake normal varyasyon olarak değerlendirilmiştir."
+        ],
+        "muscles": [
+          "Pelvik kaslarda bilateral simetrik FDG uptake izlenmektedir.",
+          "Pelvik kaslarda fizyolojik FDG aktivitesi mevcuttur.",
+          "Pelvik kaslarda hafif FDG uptake normal varyasyon olarak değerlendirilmiştir."
+        ]
+      },
+      "pathological": {
+        "tumor": [
+          "SUVmax {suv_max:.1f} olan primer pelvik tümörü tespit edilmiştir.",
+          "SUVmax {suv_max:.1f} olan şüpheli pelvik lezyon izlenmektedir.",
+          "SUVmax {suv_max:.1f} olan malign pelvik lezyonu saptanmıştır."
+        ],
+        "lymph_nodes": [
+          "SUVmax {suv_max:.1f} olan pelvik lenf nodu metastazı tespit edilmiştir.",
+          "SUVmax {suv_max:.1f} olan şüpheli pelvik lenf nodu lezyonu izlenmektedir.",
+          "SUVmax {suv_max:.1f} olan bölgesel lenf nodu tutulumu saptanmıştır."
+        ],
+        "metastasis": [
+          "SUVmax {suv_max:.1f} olan uzak pelvik metastazı tespit edilmiştir.",
+          "SUVmax {suv_max:.1f} olan şüpheli pelvik metastatik lezyon izlenmektedir.",
+          "SUVmax {suv_max:.1f} olan sekonder pelvik lezyonu saptanmıştır."
+        ]
+      }
+    }
+  },
+  "tracer_specific": {
+    "FDG": {
+      "normal_ranges": {
+        "brain": 6.0,
+        "liver": 3.0,
+        "muscle": 1.0,
+        "blood_pool": 2.0
+      },
+      "suspicious_threshold": 2.5,
+      "malignant_threshold": 4.0
+    },
+    "PSMA": {
+      "normal_ranges": {
+        "prostate": 2.0,
+        "salivary_glands": 4.0,
+        "kidneys": 3.0,
+        "liver": 2.5
+      },
+      "suspicious_threshold": 3.0,
+      "malignant_threshold": 6.0
+    },
+    "DOTATATE": {
+      "normal_ranges": {
+        "spleen": 8.0,
+        "adrenals": 3.0,
+        "pituitary": 4.0,
+        "thyroid": 2.0
+      },
+      "suspicious_threshold": 3.0,
+      "malignant_threshold": 5.0
+    }
+  },
+  "icd_codes": {
+    "C78.00": "Akciğer metastazı",
+    "C78.01": "Akciğer metastazı, tek lezyon",
+    "C78.02": "Akciğer metastazı, çoklu lezyon",
+    "C78.1": "Mediastinal metastaz",
+    "C78.2": "Plevra metastazı",
+    "C78.3": "Diyafram metastazı",
+    "C78.4": "Karaciğer metastazı",
+    "C78.5": "Kemik metastazı",
+    "C78.6": "Retroperitoneal metastaz",
+    "C78.7": "Böbrek metastazı",
+    "C78.8": "Diğer organ metastazları",
+    "C78.9": "Metastaz, belirtilmemiş",
+    "C79.00": "Böbrek metastazı",
+    "C79.01": "Böbrek metastazı, tek lezyon",
+    "C79.02": "Böbrek metastazı, çoklu lezyon",
+    "C79.1": "Pelvik metastaz",
+    "C79.2": "Kemik metastazı",
+    "C79.3": "Beyin metastazı",
+    "C79.4": "Böbreküstü bezi metastazı",
+    "C79.5": "Karaciğer metastazı",
+    "C79.6": "Akciğer metastazı",
+    "C79.7": "Böbrek metastazı",
+    "C79.8": "Diğer organ metastazları",
+    "C79.9": "Metastaz, belirtilmemiş"
+  },
+  "clinical_goals": {
+    "staging": "Hastalık evreleme",
+    "restaging": "Hastalık yeniden evreleme",
+    "response_assessment": "Tedavi yanıt değerlendirmesi",
+    "surveillance": "Hastalık takibi",
+    "recurrence_detection": "Nüks tespiti",
+    "prognosis": "Prognoz değerlendirmesi"
+  }
+}

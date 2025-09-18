@@ -1,0 +1,56 @@
+services:
+  - type: web
+    name: neuropetrix-api
+    env: python
+    plan: starter
+    buildCommand: |
+      cd backend
+      pip install -r requirements.txt
+      pip install -r requirements-optional.txt
+    startCommand: |
+      cd backend
+      uvicorn main:app --host 0.0.0.0 --port $PORT --workers 2
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: PORT
+        value: 10000
+      - key: APP_ENV
+        value: production
+      - key: DATABASE_URL
+        value: sqlite:///neuropetrix.db
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: https://neuropetrix.vercel.app,https://neuropetrix-frontend.vercel.app
+      - key: GEMINI_API_KEY
+        sync: false
+    healthCheckPath: /health
+    autoDeploy: true
+    branch: main
+    rootDir: backend
+    disk:
+      name: neuropetrix-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
+
+  - type: web
+    name: neuropetrix-monitoring
+    env: python
+    plan: starter
+    buildCommand: |
+      pip install prometheus-client grafana-api
+    startCommand: |
+      python -m http.server 8080
+    envVars:
+      - key: PORT
+        value: 8080
+    autoDeploy: false
+    branch: main
+    rootDir: monitoring
+
+databases:
+  - name: neuropetrix-db
+    plan: starter
+    databaseName: neuropetrix_prod
+    user: neuropetrix_user
