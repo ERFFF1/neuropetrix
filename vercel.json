@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "apps/web/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api-proxy/(.*)",
+      "dest": "https://neuropetrix.onrender.com/$1"
+    },
+    {
+      "src": "/legacy/(.*)",
+      "dest": "https://neuropetrix.onrender.com/legacy/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/apps/web/$1"
+    }
+  ],
+  "env": {
+    "API_BASE": "https://neuropetrix.onrender.com",
+    "NEXT_PUBLIC_API_BASE": "/api-proxy"
+  }
+}
