@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:local": "echo 'API_BASE=http://localhost:8080\nNEXT_PUBLIC_API_BASE=/api-proxy' > .env.local && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

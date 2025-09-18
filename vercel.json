@@ -1,23 +1,17 @@
 {
   "version": 2,
-  "builds": [
+  "buildCommand": "cd apps/web && npm install && npm run build",
+  "outputDirectory": "apps/web/.next",
+  "installCommand": "cd apps/web && npm install",
+  "devCommand": "cd apps/web && npm run dev",
+  "rewrites": [
     {
-      "src": "apps/web/package.json",
-      "use": "@vercel/next"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api-proxy/(.*)",
-      "dest": "https://neuropetrix.onrender.com/$1"
+      "source": "/api-proxy/(.*)",
+      "destination": "https://neuropetrix.onrender.com/$1"
     },
     {
-      "src": "/legacy/(.*)",
-      "dest": "https://neuropetrix.onrender.com/legacy/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/apps/web/$1"
+      "source": "/legacy/(.*)",
+      "destination": "https://neuropetrix.onrender.com/legacy/$1"
     }
   ],
   "env": {
