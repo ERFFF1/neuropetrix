@@ -33,6 +33,10 @@ app.add_middleware(
 async def health_check():
     return {"status": "healthy", "timestamp": datetime.now().isoformat()}
 
+@app.get("/healthz", summary="Health Check for Render")
+async def healthz():
+    return {"status": "healthy", "timestamp": datetime.now().isoformat()}
+
 @app.get("/api/test", summary="Test Endpoint")
 async def test_endpoint():
     return {"message": "Backend is working!", "timestamp": datetime.now().isoformat()}
