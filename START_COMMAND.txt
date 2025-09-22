@@ -1,0 +1,4 @@
+Render Start Command:
+uvicorn main:app --host 0.0.0.0 --port $PORT
+
+Bu komutu Render dashboard'da Settings > Build & Deploy > Start Command alanına yaz.
