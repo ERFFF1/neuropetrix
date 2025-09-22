@@ -1,0 +1,8 @@
+# NeuroPETRIX Ultra-Minimal Requirements for Render
+# Python 3.13 compatible versions
+
+fastapi==0.68.0
+uvicorn==0.15.0
+pydantic==1.8.2
+python-multipart==0.0.5
+requests==2.25.1
