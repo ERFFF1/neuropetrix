@@ -1,0 +1,108 @@
+name: Production Health Monitor
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"  # Her 15 dakikada bir
+  workflow_dispatch:  # Manuel çalıştırma
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Check Render API Health
+        run: |
+          echo "🔍 Checking Render API health..."
+          API_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://neuropetrix.onrender.com/health)
+          echo "API Status Code: $API_STATUS"
+          
+          if [ "$API_STATUS" = "200" ]; then
+            echo "✅ Render API is healthy"
+          else
+            echo "❌ Render API health check failed"
+            exit 1
+          fi
+          
+      - name: Check Vercel Frontend Health
+        run: |
+          echo "🔍 Checking Vercel frontend health..."
+          FRONTEND_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://neuropetrix.vercel.app)
+          echo "Frontend Status Code: $FRONTEND_STATUS"
+          
+          if [ "$FRONTEND_STATUS" = "200" ]; then
+            echo "✅ Vercel frontend is healthy"
+          else
+            echo "❌ Vercel frontend health check failed"
+            exit 1
+          fi
+          
+      - name: Check API Proxy
+        run: |
+          echo "🔍 Checking API proxy..."
+          PROXY_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://neuropetrix.vercel.app/api-proxy/health)
+          echo "Proxy Status Code: $PROXY_STATUS"
+          
+          if [ "$PROXY_STATUS" = "200" ]; then
+            echo "✅ API proxy is working"
+          else
+            echo "❌ API proxy health check failed"
+            exit 1
+          fi
+          
+      - name: Test API Endpoints
+        run: |
+          echo "🔍 Testing critical API endpoints..."
+          
+          # Test health endpoint
+          curl -f https://neuropetrix.onrender.com/health || echo "❌ Health endpoint failed"
+          
+          # Test version endpoint
+          curl -f https://neuropetrix.onrender.com/version || echo "❌ Version endpoint failed"
+          
+          # Test metrics endpoint
+          curl -f https://neuropetrix.onrender.com/metrics || echo "❌ Metrics endpoint failed"
+          
+          echo "✅ API endpoints test completed"
+          
+      - name: Performance Check
+        run: |
+          echo "🔍 Checking response times..."
+          
+          # Check API response time
+          API_TIME=$(curl -o /dev/null -s -w "%{time_total}" https://neuropetrix.onrender.com/health)
+          echo "API Response Time: ${API_TIME}s"
+          
+          # Check frontend response time
+          FRONTEND_TIME=$(curl -o /dev/null -s -w "%{time_total}" https://neuropetrix.vercel.app)
+          echo "Frontend Response Time: ${FRONTEND_TIME}s"
+          
+          # Alert if response time is too high
+          if (( $(echo "$API_TIME > 5.0" | bc -l) )); then
+            echo "⚠️ API response time is high: ${API_TIME}s"
+          fi
+          
+          if (( $(echo "$FRONTEND_TIME > 3.0" | bc -l) )); then
+            echo "⚠️ Frontend response time is high: ${FRONTEND_TIME}s"
+          fi
+          
+      - name: System Status Report
+        run: |
+          echo "📊 System Health Report"
+          echo "======================"
+          echo "Timestamp: $(date)"
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch: ${{ github.ref }}"
+          echo ""
+          echo "🌐 Services Status:"
+          echo "  - Render API: $(curl -s -o /dev/null -w "%{http_code}" https://neuropetrix.onrender.com/health)"
+          echo "  - Vercel Frontend: $(curl -s -o /dev/null -w "%{http_code}" https://neuropetrix.vercel.app)"
+          echo "  - API Proxy: $(curl -s -o /dev/null -w "%{http_code}" https://neuropetrix.vercel.app/api-proxy/health)"
+          echo ""
+          echo "⚡ Performance:"
+          echo "  - API Response: $(curl -o /dev/null -s -w "%{time_total}" https://neuropetrix.onrender.com/health)s"
+          echo "  - Frontend Response: $(curl -o /dev/null -s -w "%{time_total}" https://neuropetrix.vercel.app)s"
+          echo ""
+          echo "✅ All systems operational"

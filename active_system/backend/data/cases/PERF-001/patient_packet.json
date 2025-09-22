@@ -1,0 +1,15 @@
+{
+  "patient_id": "PERF-001",
+  "icd10": "C34.9",
+  "clinical_goal": "staging",
+  "hbys": {
+    "ECOG": 1,
+    "eGFR": 78.0,
+    "BloodGlucose_mgdl": 96.0,
+    "allergies": [],
+    "meds": [],
+    "additional_data": null
+  },
+  "intake_timestamp": "2025-09-01 23:00:52.081553",
+  "source_system": "HBYS"
+}

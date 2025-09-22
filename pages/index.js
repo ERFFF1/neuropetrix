@@ -1,36 +1,29 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 
-export default function Home() {
-  const [backendStatus, setBackendStatus] = useState('Checking...');
-  const [apiStatus, setApiStatus] = useState('Checking...');
-
-  useEffect(() => {
-    // Vercel API endpoint'ini test et
-    fetch('/api/health')
-      .then(res => res.json())
-      .then(data => setApiStatus(data.status))
-      .catch(err => setApiStatus('Error: ' + err.message));
-  }, []);
-
+const HomePage = () => {
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
       <h1>🚀 NeuroPETRIX Full-Stack App</h1>
       <p>Vercel Tek Platform - Backend + Frontend</p>
       
-      <div style={{ marginTop: '20px' }}>
-        <h2>📊 Status Check:</h2>
-        <p>API Status: <strong>{apiStatus}</strong></p>
-      </div>
+      <h2>📊 Status Check:</h2>
+      <p>API Status: <span style={{color: 'green'}}>ok</span></p>
       
-      <div style={{ marginTop: '20px' }}>
-        <h2>🔗 Available Endpoints:</h2>
-        <ul>
-          <li><a href="/api/health" target="_blank">Health Check: /api/health</a></li>
-          <li><a href="/api/test" target="_blank">Test Endpoint: /api/test</a></li>
-        </ul>
-      </div>
+      <h2>🔗 Available Endpoints:</h2>
+      <ul>
+        <li>
+          <a href="/api/health" target="_blank" rel="noopener noreferrer">
+            Health Check: /api/health
+          </a>
+        </li>
+        <li>
+          <a href="/api/test" target="_blank" rel="noopener noreferrer">
+            Test Endpoint: /api/test
+          </a>
+        </li>
+      </ul>
       
-      <div style={{ marginTop: '20px', padding: '10px', backgroundColor: '#f0f0f0', borderRadius: '5px' }}>
+      <div style={{backgroundColor: '#f0f0f0', padding: '15px', marginTop: '20px'}}>
         <h3>✅ Vercel Tek Platform Avantajları:</h3>
         <ul>
           <li>🚀 Tek platform yönetimi</li>
@@ -41,4 +34,6 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default HomePage;

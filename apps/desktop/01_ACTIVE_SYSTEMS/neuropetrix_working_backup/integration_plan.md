@@ -1,0 +1,297 @@
+🧠 NeuroPETrix - Entegrasyon Planı
+====================================
+
+📊 MEVCUT DURUM:
+- Çalışan sistem: neuropetrix_working_system_20250824_004704
+- Backend: FastAPI (port 8000) ✅ ÇALIŞIYOR
+- Frontend: Streamlit (port 8501) ✅ ÇALIŞIYOR
+- Entegre özellikler: ASR Panel, SUV Trend, Evidence Panel
+
+🚀 ENTEGRASYON BAŞLIYOR...
+📋 MASASÜSTÜNDEKİ SCRIPT'LER:
+- __init__.py
+- _version.py
+- add_baseline.py
+- addTest.py
+- aktif_ogrenme_gpt_guncelleyici.py
+- ana_gui_panel.py
+- ana_gui.py
+- analyze_bilge_log.py
+- anonim_database_olustur.py
+- anonymize_birthdate_add_age.py
+- app.py
+- asistan_gui_modul.py
+- asistan_gui.py
+- asistan_sekmesi.py
+- auto_flow_test.py
+- base.py
+- batchprocessing_parallel.py
+- batchprocessing.py
+- batchProcessingWithPandas.py
+- bilge_kisi_geri_bildirim_paneli.py
+- bilge_kisi_mistral_gui.py
+- bilge_kisi_panel.py
+- bloklu_rapor_editoru_gui.py
+- conf.py
+- convert_all_dicom_to_nifti.py
+- convert_and_segment.py
+- convert_dicom_to_nifti.py
+- DatasetHierarchyReader.py
+- dosya_tasiyici.py
+- drag_and_drop_editor.py
+- eimza_eposta_gonder_v3_2.py
+- elestirisel_degerlendirici 2.py
+- elestirisel_degerlendirici.py
+- eski_rapor_izleyici.py
+- example_script 2.py
+- example_script.py
+- fayda_zarar_dengeleyici 2.py
+- fayda_zarar_dengeleyici.py
+- featureextractor.py
+- firstorder.py
+- fp_skor_modulu 2.py
+- fp_skor_modulu.py
+- fpplus_demo.py
+- fpplus_varyasyon_simulasyon_motoru.py
+- generalinfo.py
+- GenerateInputCSV_Datasethierarchy.py
+- GenerateInputCSV_Filename.py
+- glcm.py
+- gldm.py
+- glrlm.py
+- glszm.py
+- gorev_takip_gui_advanced.py
+- gorev_takip_gui.py
+- gpt_bilge_kisi_gui_fixed.py
+- gpt_bilge_kisi_gui.py
+- gpt_fpplus_varyasyon_ogrenen.py
+- gpt_fpplus_varyasyon_ureticisi.py
+- gpt_gui_kayit.py
+- gpt_log_db_panel_v4_5.py
+- gpt_ogrenme_analiz_v3_1.py
+- gpt_oneri_kutusu_v4_4.py
+- gpt_otomatik_oneri_v4_7.py
+- gpt_ozet_ureticisi_v2_8.py
+- gpt_ozet_ve_word_kayit.py
+- gpt_trend_analiz_v4_6.py
+- gpt_varyasyon_ogrenici.py
+- gpt_yorum_duzeltme_gui.py
+- gpt_yorum_loglayici.py
+- gpt_yorum_motoru 2.py
+- gpt_yorum_motoru.py
+- gpt_yorum_ureticisi 2.py
+- gpt_yorum_ureticisi 3.py
+- gpt_yorum_ureticisi kopyası.py
+- gpt_yorum_ureticisi_entegre.py
+- gpt_yorum_ureticisi.py
+- gpt4_vaka_tartisma_gui.py
+- gpt4all_test.py
+- grade_nlp.py
+- group_dicom_by_patient.py
+- gui_kayit_terminal.py
+- gui_prototip.py
+- gui_ses_kaydi.py
+- gui_tum_sistem.py
+- hasta_kayit_gecmisi_gui.py
+- hasta_rapor_arama_v3_4.py
+- hedef_uygunluk_degerlendirici.py
+- hedefe_gore_elestiri 2.py
+- hedefe_gore_elestiri.py
+- helloFeatureClass.py
+- helloRadiomics.py
+- helloRadiomicsWithSettings.py
+- helloResampling.py
+- helloVoxel.py
+- hesaplama_motoru 2.py
+- hesaplama_motoru.py
+- imageoperations.py
+- karar_gui_entegre 2.py
+- karar_gui_entegre.py
+- karar_ozeti_formatlayici 2.py
+- karar_ozeti_formatlayici.py
+- karsilastirma_gui_paneli_v2_9.py
+- kayit_gui.py
+- kaynak_erisimi_kontrol 2.py
+- kaynak_erisimi_kontrol.py
+- klasor_olustur.py
+- klinik_ai_ana_panel_v4_0 2.py
+- klinik_ai_ana_panel_v4_0 kopyası.py
+- klinik_ai_ana_panel_v4_0.py
+- klinik_ai_eposta_v6_0.py
+- klinik_ai_gui 2.py
+- klinik_ai_gui.py
+- Klinik_AI_Master_GUI_v11 2.py
+- Klinik_AI_Master_GUI_v11.py
+- Klinik_AI_Master_Panel_v10_FINAL 2.py
+- Klinik_AI_Master_Panel_v10_FINAL.py
+- Klinik_AI_Master_Panel_v8_0_FINAL_OK.py
+- Klinik_AI_Master_Panel_v8_0_FIXED.py
+- Klinik_AI_Master_Panel_v8_0.py
+- klinik_ai_master_v5_0.py
+- klinik_ai_master.py
+- klinik_ai_rol_panel_v4_1.py
+- klinik_ai_yurutucu 2.py
+- klinik_ai_yurutucu_entegre 2.py
+- klinik_ai_yurutucu_entegre_v2 2.py
+- klinik_ai_yurutucu_entegre_v2.py
+- klinik_ai_yurutucu_entegre.py
+- klinik_ai_yurutucu.py
+- klinik_karar_destek_gui_v1_1_pdf.py
+- klinik_karar_destek_gui_v1_1.py
+- klinik_karar_destek_gui_v1_2_hasta_klasor_fixed.py
+- klinik_karar_destek_gui_v1_2_hasta_klasor.py
+- klinik_karar_destek_gui_v1_3_liste_arama.py
+- klinik_karar_destek_gui_v1_3_listeleme.py
+- klinik_karar_destek_gui_v1_4_tumlesik.py
+- klinik_karar_destek_gui_v1_5_eposta.py
+- klinik_karar_destek_gui_v1_6_eposta_log_onayli 2.py
+- klinik_karar_destek_gui_v1_6_eposta_log_onayli kopyası.py
+- klinik_karar_destek_gui_v1_6_eposta_log_onayli.py
+- klinik_karar_destek_gui_v1_7_log_goruntuleyici.py
+- klinik_karar_destek_gui_v1_9_gpt_entegre.py
+- klinik_karar_destek_gui_v1.py
+- klinik_karar_super_motoru.py
+- kontrendikasyon_tespiti 2.py
+- kontrendikasyon_tespiti.py
+- kullanici_dizin_yoneticisi_v2_1.py
+- kullanici_giris_gui_v2_0.py
+- kullanici_giris_rol_kontrol_v2_3.py
+- kullanici_performans_analiz.py
+- kullanici_rol_paneli_v3_3.py
+- lezyon_parser.py
+- literatur_agirliklayici 2.py
+- literatur_agirliklayici.py
+- literatur_arama_motoru 2.py
+- literatur_arama_motoru.py
+- local_gpt_assistant.py
+- log_denetcisi_v2_5.py
+- log_goruntuleme_kullanici_filtreli.py
+- log_incele_gui.py
+- log_to_excel_exporter_v1_8.py
+- main 2.py
+- main_pet_raporlama.py
+- main.py
+- malpraktis_kalkani.py
+- mistral_vaka_asistani_gui.py
+- ngtdm.py
+- nukleus_gui.py
+- on_tani_gui 2.py
+- on_tani_gui.py
+- organize_patients.py
+- otomatik_dagitim_FINAL.py
+- otomatik_rapor_ve_pdf_uret.py
+- oturum_giris_v4_2.py
+- pdf_birlestirici_v4_3.py
+- pdf_onizleme_gui.py
+- pet_editor_click_insert_log.py
+- pet_editor_click_insert.py
+- pet_final.py
+- pet_gui 2.py
+- pet_gui_coklu_sekmeli_hastalarla_final.py
+- pet_gui_coklu_sekmeli_hastalarla_fixed.py
+- pet_gui_coklu_sekmeli_hastalarla_linked.py
+- pet_gui_coklu_sekmeli_hastalarla.py
+- pet_gui_coklu_sekmeli_panel_fixed.py
+- pet_gui_coklu_sekmeli_panel_pdf_export_fixed.py
+- pet_gui_coklu_sekmeli_panel_pdf_export.py
+- pet_gui_coklu_sekmeli_panel.py
+- pet_gui_final 2.py
+- pet_gui_final kopyası.py
+- pet_gui_final_entegre.py
+- pet_gui_final_fpplus_entegre.py
+- pet_gui_final_fpplus_karsilastirmali.py
+- pet_gui_final.py
+- pet_gui_fpplus_segmentasyonlu_geribildirimli.py
+- pet_gui_fpplus_segmentasyonlu.py
+- pet_gui_on_izlemeli.py
+- pet_gui.py
+- pet_klinik_yorum_dosyaya_yaz_final 2.py
+- pet_klinik_yorum_dosyaya_yaz_final kopyası.py
+- pet_klinik_yorum_dosyaya_yaz_final.py
+- pet_klinik_yorum_dosyaya_yaz.py
+- pet_klinik_yorum_entegre.py
+- pet_rapor_gui.py
+- pet_rapor_isleyici.py
+- pet_rapor_otomatigi_fpplus_gpt_karsilastirma.py
+- pet_rapor_otomatigi_fpplus_gpt.py
+- pet_rapor_otomatigi_fpplus_segmentasyonlu.py
+- pet_rapor_otomatigi.py
+- pico_ureticisi 2.py
+- pico_ureticisi.py
+- proje_durumu_goster.py
+- pyradiomics-dcm.py
+- qc_dicom_okuyucu.py
+- qc_dicom_reader.py
+- qc_filter.py
+- rapor_entegrasyon.py
+- rapor_etiketleyici.py
+- rapor_ici_isaretleme_gui.py
+- rapor_isle.py
+- rapor_karsilastirici_v2_8 2.py
+- rapor_karsilastirici_v2_8.py
+- rapor_karsilastirma_ogrenici.py
+- rapor_olusturucu.py
+- rapor_sablon_secici_gui.py
+- rapor_uretici 2.py
+- rapor_uretici.py
+- raporla_ve_olustur_fp_segmentasyon_gpt 2.py
+- raporla_ve_olustur_fp_segmentasyon_gpt.py
+- raporla_ve_olustur.py
+- resampleMask.py
+- reset_baslat.py
+- rol_bazli_gui_panel.py
+- rol_yetki_yoneticisi.py
+- rules.py
+- run_radiomics.py
+- safe_dicom_saver.py
+- schemaFuncs.py
+- script_analiz_ve_rapor.py
+- segment.py
+- segmentasyon_gui.py
+- segmentasyon_pipeline.py
+- ses_kaydedici_gui.py
+- ses_kayit_gui.py
+- ses_kayit_temizle.py
+- setup.py
+- shape.py
+- shape2D.py
+- sifre_degistirme_paneli.py
+- soru_ureticisi 2.py
+- soru_ureticisi.py
+- streamlit_app.py
+- suvmax_analiz_modulu 2.py
+- suvmax_analiz_modulu.py
+- suvmax_deger_yorumlayici.py
+- suvmax_klinik_siniflama_v3_6.py
+- suvmax_trend_analiz_v3_5.py
+- tedavi_protokol_uygunluk 2.py
+- tedavi_protokol_uygunluk.py
+- tema_dil_secimi_gui.py
+- test_docstrings.py
+- test_exampleSettings.py
+- test_features.py
+- test_gpt_yorum_uret.py
+- test_matrices.py
+- test_smoke.py
+- test_wavelet.py
+- testParams.py
+- testUtils.py
+- textural_analiz_karar_motoru_linked.py
+- textural_extract.py
+- textural_to_report.py
+- topla_ve_tasi_neuro_verileri.py
+- toplu_pet_rapor.py
+- transkript_duzenleyici.py
+- transkript_izleyici.py
+- v6_1_otomatik_mail_gonderici.py
+- v7_0_gpt4all_yorum_simulasyon.py
+- versioneer.py
+- voxel.py
+- whisper_transcribe_auto.py
+- whisper_transkript 2.py
+- whisper_transkript.py
+- yas_ekle_anon_batch.py
+- yeni_kayit_belirle.py
+- yorum_dogrulama.py
+- yorum_log_analiz_motoru.py
+- yorumlayici.py

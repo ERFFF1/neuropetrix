@@ -1,0 +1,52 @@
+{
+  "patient_id": "NPX-001",
+  "report_id": "RPT-NPX-001-20250901-134333",
+  "generated_at": "2025-09-01 13:43:33.752290",
+  "tsnm_report": {
+    "patient_id": "NPX-001",
+    "icd10": "C34.9",
+    "clinical_goal": "staging",
+    "findings": "No imaging data available for findings generation",
+    "percist_category": null,
+    "deauville_score": null,
+    "ai_conclusion": "Initial staging assessment completed. Consider imaging for comprehensive evaluation.",
+    "qc_flags": [],
+    "report_type": "TSNM",
+    "generated_at": "2025-09-01T13:43:33.752031"
+  },
+  "annex_report": {
+    "pico_question": null,
+    "grade_summary": null,
+    "references": [],
+    "toxicity_notes": null,
+    "evidence_level": null,
+    "report_type": "Evidence Annex",
+    "generated_at": "2025-09-01T13:43:33.752068"
+  },
+  "fhir_report": {
+    "diagnostic_report": {
+      "resourceType": "DiagnosticReport",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "18748-4",
+            "display": "Diagnostic imaging study report"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/NPX-001"
+      },
+      "effectiveDateTime": "2025-09-01T13:43:33.752073",
+      "issued": "2025-09-01T13:43:33.752074",
+      "result": []
+    },
+    "observations": [],
+    "report_type": "FHIR",
+    "generated_at": "2025-09-01T13:43:33.752267"
+  },
+  "status": "completed",
+  "processing_time": 0.0005061626434326172
+}

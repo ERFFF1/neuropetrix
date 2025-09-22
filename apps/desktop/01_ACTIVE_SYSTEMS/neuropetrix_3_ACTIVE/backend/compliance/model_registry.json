@@ -1,0 +1,46 @@
+{
+  "models": {
+    "monai_segmentation": {
+      "version": "1.0.0",
+      "description": "MONAI 3D segmentation model",
+      "path": "./models/monai/segmentation_model.pt",
+      "last_updated": "2024-12-19",
+      "performance_metrics": {
+        "dice_score": "0.85",
+        "hausdorff_distance": "2.3mm"
+      }
+    },
+    "radiomics_features": {
+      "version": "1.0.0",
+      "description": "PyRadiomics feature extraction",
+      "path": "./models/radiomics/feature_params.yaml",
+      "last_updated": "2024-12-19",
+      "features": ["SUVmax", "MTV", "TLG", "texture_features"]
+    }
+  },
+  "rules": {
+    "decision_templates": {
+      "version": "1.0.0",
+      "last_updated": "2024-12-19"
+    },
+    "percist_rules": {
+      "version": "1.0.0",
+      "last_updated": "2024-12-19"
+    },
+    "deauville_rules": {
+      "version": "1.0.0",
+      "last_updated": "2024-12-19"
+    },
+    "qc_snippets": {
+      "version": "1.0.0",
+      "last_updated": "2024-12-19"
+    }
+  },
+  "system": {
+    "version": "1.5.0",
+    "last_updated": "2024-12-19",
+    "status": "active"
+  }
+}
+
+

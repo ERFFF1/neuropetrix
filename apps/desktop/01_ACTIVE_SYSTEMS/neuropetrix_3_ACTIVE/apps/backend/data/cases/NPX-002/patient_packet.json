@@ -1,0 +1,18 @@
+{
+  "patient_id": "NPX-002",
+  "icd10": "C34.9",
+  "clinical_goal": "response",
+  "hbys": {
+    "ECOG": 0,
+    "eGFR": 85.0,
+    "BloodGlucose_mgdl": 102.0,
+    "allergies": [],
+    "meds": [
+      "Cisplatin",
+      "Etoposide"
+    ],
+    "additional_data": null
+  },
+  "intake_timestamp": "2025-09-01 23:02:41.626356",
+  "source_system": "HBYS"
+}

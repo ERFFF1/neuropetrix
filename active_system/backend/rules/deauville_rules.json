@@ -1,0 +1,34 @@
+{
+  "scoring": {
+    "1": {
+      "description": "No uptake above background",
+      "clinical_meaning": "Excellent response",
+      "action": "Continue current treatment"
+    },
+    "2": {
+      "description": "Uptake ≤ mediastinum",
+      "clinical_meaning": "Good response",
+      "action": "Continue current treatment"
+    },
+    "3": {
+      "description": "Uptake > mediastinum but ≤ liver",
+      "clinical_meaning": "Moderate response",
+      "action": "Monitor closely"
+    },
+    "4": {
+      "description": "Uptake moderately higher than liver",
+      "clinical_meaning": "Concerning pattern",
+      "action": "Consider treatment adjustment"
+    },
+    "5": {
+      "description": "Uptake markedly higher than liver",
+      "clinical_meaning": "Highly concerning pattern",
+      "action": "Aggressive intervention required"
+    }
+  },
+  "conditions": {
+    "clinical_goal": "lymphoma_followup",
+    "imaging_available": true,
+    "reference_structures": ["mediastinum", "liver"]
+  }
+}

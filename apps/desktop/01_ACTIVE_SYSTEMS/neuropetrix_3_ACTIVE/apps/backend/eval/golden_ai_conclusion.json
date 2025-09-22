@@ -1,0 +1,50 @@
+{
+  "test_cases": {
+    "S1_no_imaging_staging": {
+      "input": {
+        "clinical_goal": "staging",
+        "imaging_available": false,
+        "icd10": "C34.9"
+      },
+      "expected_output": {
+        "ai_conclusion": "staging.no_imaging",
+        "percist": null,
+        "deauville": null,
+        "qc_flags": []
+      }
+    },
+    "R1_response_PMR": {
+      "input": {
+        "clinical_goal": "response",
+        "imaging_available": true,
+        "percist": "PMR"
+      },
+      "expected_output": {
+        "ai_conclusion": "response.percist_PMR",
+        "percist": "PMR",
+        "deauville": null,
+        "qc_flags": []
+      }
+    },
+    "L1_lymphoma_dv2": {
+      "input": {
+        "clinical_goal": "lymphoma_followup",
+        "imaging_available": true,
+        "deauville": 2
+      },
+      "expected_output": {
+        "ai_conclusion": "lymphoma_followup.deauville_1_3",
+        "percist": null,
+        "deauville": 2,
+        "qc_flags": []
+      }
+    }
+  },
+  "validation_rules": {
+    "staging": "PERCIST ve Deauville null olmalı",
+    "response": "PERCIST hesaplanmalı, Deauville null olmalı",
+    "lymphoma_followup": "Deauville hesaplanmalı, PERCIST null olmalı"
+  }
+}
+
+

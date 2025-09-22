@@ -1,0 +1,63 @@
+{
+  "template_type": "psma_pet_ct",
+  "template_name": "PSMA PET/BT - Prostat Kanseri",
+  "file_id": "2020-0030",
+  "generation_date": "2025-08-17T04:39:31.353924",
+  "sections": {
+    "hasta_kimligi": {
+      "hasta_no": "TEST001",
+      "yas": 65,
+      "cinsiyet": "Erkek",
+      "anonim_hash": "abc123def456",
+      "calisma_tarihi": "2024-01-15"
+    },
+    "on_tani_endikasyon": {
+      "icd_kodu": "C61.9",
+      "klinik_tani": "Prostat kanseri",
+      "endikasyon": "ICD: C61.9 - Prostat kanseri. PSMA PET/BT ile biyokimyasal rekürrens değerlendirmesi.",
+      "oncelik": "Yüksek"
+    },
+    "yontem": {
+      "yontem": "PSMA PET/BT incelemesi - Prostat spesifik membran antijeni görüntülemesi",
+      "tracer": "Ga-68 PSMA",
+      "injection_dose": 185,
+      "uptake_time": 60,
+      "suv_scale": "BW"
+    },
+    "bulgular": {
+      "risk_degerlendirmesi": {
+        "risk_level": "Yüksek",
+        "suv_max": 7.8,
+        "suv_mean": 4.2,
+        "yorum": "Yüksek SUVmax değeri ile malignite şüphesi"
+      },
+      "anatomik_bulgular": {
+        "prostat": "Prostat lojunda PSMA tutulumu değerlendirildi",
+        "lenf_nodu": "Pelvik ve retroperitoneal lenf nodları incelendi",
+        "kemik": "Kemik metastazları değerlendirildi"
+      },
+      "otomatik_varyasyon": "Fokal artmış FDG tutulumu izlenmiştir"
+    },
+    "prostat_lokasyonu": {
+      "content": "prostat_lokasyonu bölümü - AI analizi bekleniyor"
+    },
+    "lenf_nodu": {
+      "content": "lenf_nodu bölümü - AI analizi bekleniyor"
+    },
+    "kemik_metastaz": {
+      "content": "kemik_metastaz bölümü - AI analizi bekleniyor"
+    },
+    "ekstranodal": {
+      "content": "ekstranodal bölümü - AI analizi bekleniyor"
+    },
+    "suvmax_listesi": {
+      "content": "suvmax_listesi bölümü - AI analizi bekleniyor"
+    },
+    "karsilastirma": {
+      "content": "karsilastirma bölümü - AI analizi bekleniyor"
+    },
+    "sonuc_yorum": {
+      "content": "sonuc_yorum bölümü - AI analizi bekleniyor"
+    }
+  }
+}

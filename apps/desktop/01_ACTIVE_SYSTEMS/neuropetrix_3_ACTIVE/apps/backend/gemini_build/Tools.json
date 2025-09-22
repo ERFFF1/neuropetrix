@@ -1,0 +1,239 @@
+{
+  "tools": [
+    {
+      "name": "run_imaging_pipeline",
+      "description": "DICOM görüntülerini işleyerek MONAI segmentasyonu ve PyRadiomics özellik çıkarma yapar",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "dicom_dir": {
+            "type": "string",
+            "description": "DICOM dosyalarının bulunduğu dizin yolu"
+          },
+          "case_meta": {
+            "type": "object",
+            "properties": {
+              "patient_id": {"type": "string"},
+              "study_uid": {"type": "string"},
+              "icd10": {"type": "string"},
+              "clinical_goal": {
+                "type": "string",
+                "enum": ["staging", "response", "lymphoma_followup"]
+              },
+              "pico": {
+                "type": "object",
+                "properties": {
+                  "P": {"type": "string"},
+                  "I": {"type": "string"},
+                  "C": {"type": "string"},
+                  "O": {"type": "string"}
+                }
+              },
+              "hints": {
+                "type": "object",
+                "properties": {
+                  "structures_of_interest": {
+                    "type": "array",
+                    "items": {"type": "string"}
+                  }
+                }
+              },
+              "acquisition": {
+                "type": "object",
+                "properties": {
+                  "tracer": {"type": "string"},
+                  "dose_MBq": {"type": "number"},
+                  "blood_glucose_mgdl": {"type": "number"},
+                  "uptake_time_min": {"type": "number"}
+                }
+              }
+            },
+            "required": ["patient_id", "icd10", "clinical_goal"]
+          }
+        },
+        "required": ["dicom_dir", "case_meta"]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "case_id": {"type": "string"},
+          "status": {"type": "string"},
+          "processing_time": {"type": "number"},
+          "results": {
+            "type": "object",
+            "properties": {
+              "segmentation": {"type": "string"},
+              "radiomics": {"type": "string"},
+              "percist": {"type": "string"},
+              "deauville": {"type": "number"},
+              "suv_metrics": {
+                "type": "object",
+                "properties": {
+                  "suvmax": {"type": "number"},
+                  "mtv": {"type": "number"},
+                  "tlg": {"type": "number"}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "evidence_search",
+      "description": "PICO sorusuna göre literatür arama yapar ve GRADE değerlendirmesi yapar",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "pico": {
+            "type": "object",
+            "properties": {
+              "P": {"type": "string", "description": "Population"},
+              "I": {"type": "string", "description": "Intervention"},
+              "C": {"type": "string", "description": "Comparison"},
+              "O": {"type": "string", "description": "Outcome"}
+            },
+            "required": ["P", "I", "C", "O"]
+          },
+          "max_refs": {
+            "type": "number",
+            "description": "Maksimum referans sayısı",
+            "default": 10
+          },
+          "icd10": {"type": "string"},
+          "clinical_goal": {
+            "type": "string",
+            "enum": ["staging", "response", "lymphoma_followup"]
+          }
+        },
+        "required": ["pico", "icd10", "clinical_goal"]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "search_results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {"type": "string"},
+                "authors": {"type": "string"},
+                "journal": {"type": "string"},
+                "year": {"type": "number"},
+                "abstract": {"type": "string"},
+                "grade_score": {"type": "string"},
+                "relevance_score": {"type": "number"}
+              }
+            }
+          },
+          "grade_summary": {"type": "string"},
+          "clinical_recommendations": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    },
+    {
+      "name": "push_fhir_report",
+      "description": "TSNM raporu ve ölçümleri FHIR formatında HBYS'e gönderir",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "diagnostic_report": {
+            "type": "object",
+            "properties": {
+              "patient_id": {"type": "string"},
+              "study_uid": {"type": "string"},
+              "report_type": {"type": "string"},
+              "findings": {"type": "string"},
+              "conclusion": {"type": "string"},
+              "ai_conclusion": {"type": "string"}
+            }
+          },
+          "observations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": {"type": "string"},
+                "value": {"type": "number"},
+                "unit": {"type": "string"},
+                "interpretation": {"type": "string"}
+              }
+            }
+          },
+          "annex_document": {
+            "type": "object",
+            "properties": {
+              "pico_question": {"type": "string"},
+              "grade_summary": {"type": "string"},
+              "references": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "clinical_recommendations": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            }
+          }
+        },
+        "required": ["diagnostic_report", "observations"]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "fhir_status": {"type": "string"},
+          "message": {"type": "string"},
+          "report_id": {"type": "string"},
+          "timestamp": {"type": "string"}
+        }
+      }
+    },
+    {
+      "name": "generate_ai_conclusion",
+      "description": "Klinik verileri analiz ederek AI sonucu ve öneri üretir",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "clinical_goal": {
+            "type": "string",
+            "enum": ["staging", "response", "lymphoma_followup"]
+          },
+          "imaging_available": {"type": "boolean"},
+          "imaging_metrics": {
+            "type": "object",
+            "properties": {
+              "suvmax": {"type": "number"},
+              "mtv": {"type": "number"},
+              "tlg": {"type": "number"},
+              "percist": {"type": "string"},
+              "deauville": {"type": "number"}
+            }
+          },
+          "qc_flags": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "evidence_summary": {"type": "string"}
+        },
+        "required": ["clinical_goal", "imaging_available"]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "ai_conclusion": {"type": "string"},
+          "rationale": {"type": "string"},
+          "clinical_recommendations": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "confidence_score": {"type": "number"}
+        }
+      }
+    }
+  ]
+}
+
+

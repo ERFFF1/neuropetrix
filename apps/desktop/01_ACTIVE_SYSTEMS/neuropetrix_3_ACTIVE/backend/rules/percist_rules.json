@@ -1,0 +1,93 @@
+{
+  "version": "1.0",
+  "description": "PERCIST 1.0 criteria for PET response assessment",
+  "thresholds": {
+    "PMR": -30,
+    "SMD": 30,
+    "PMD": null
+  },
+  "criteria": {
+    "PMR": {
+      "description": "Partial Metabolic Response",
+      "threshold": "≥30% decrease in SUVmax",
+      "conditions": ["clinical_goal = 'response'", "imaging_available = true"]
+    },
+    "SMD": {
+      "description": "Stable Metabolic Disease",
+      "threshold": "SUVmax change between -30% and +30%",
+      "conditions": ["clinical_goal = 'response'", "imaging_available = true"]
+    },
+    "PMD": {
+      "description": "Progressive Metabolic Disease",
+      "threshold": "≥30% increase in SUVmax",
+      "conditions": ["clinical_goal = 'response'", "imaging_available = true"]
+    },
+    "SDP": {
+      "description": "Stable Disease with Progression",
+      "threshold": "New lesions with SUVmax > 1.5 × liver",
+      "conditions": ["clinical_goal = 'response'", "imaging_available = true"]
+    }
+  },
+  "calculation": {
+    "baseline_suvmax": "required",
+    "followup_suvmax": "required",
+    "percentage_change": "(followup - baseline) / baseline * 100",
+    "liver_reference": "SUVmax > 1.5 × liver background"
+  },
+  "measurement_requirements": {
+    "baseline_scan": "Required for comparison",
+    "followup_scan": "Required for assessment",
+    "same_scanner": "Recommended for consistency",
+    "same_protocol": "Required for accuracy",
+    "uptake_time": "60±10 minutes",
+    "blood_glucose": "<200 mg/dL",
+    "injection_dose": "Standardized per protocol"
+  },
+  "target_lesion_selection": {
+    "max_lesions": 5,
+    "min_size": "≥1.5 cm",
+    "max_size": "≤5 cm",
+    "criteria": [
+      "Highest SUVmax",
+      "Representative of disease",
+      "Measurable on both scans",
+      "Not previously irradiated"
+    ]
+  },
+  "response_categories": {
+    "complete": {
+      "SUVmax": "≤ background",
+      "lesion_count": 0,
+      "confidence": "High"
+    },
+    "partial": {
+      "SUVmax_decrease": "≥30%",
+      "lesion_count": "May decrease",
+      "confidence": "High"
+    },
+    "stable": {
+      "SUVmax_change": "-30% to +30%",
+      "lesion_count": "No significant change",
+      "confidence": "Moderate"
+    },
+    "progressive": {
+      "SUVmax_increase": "≥30%",
+      "new_lesions": "May appear",
+      "confidence": "High"
+    }
+  },
+  "quality_control": {
+    "image_quality": "Diagnostic quality required",
+    "motion_artifacts": "Minimal acceptable",
+    "attenuation_correction": "Required",
+    "reconstruction_parameters": "Consistent between scans"
+  },
+  "reporting_requirements": {
+    "baseline_suvmax": "Required",
+    "followup_suvmax": "Required",
+    "percentage_change": "Required",
+    "percist_category": "Required",
+    "confidence_level": "Recommended",
+    "clinical_correlation": "Required"
+  }
+}

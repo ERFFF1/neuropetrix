@@ -1,0 +1,70 @@
+{
+  "version": 2,
+  "name": "neuropetrix-frontend",
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api-proxy/(.*)",
+      "dest": "https://neuropetrix.onrender.com/$1",
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "env": {
+    "VITE_API_BASE_URL": "https://neuropetrix.onrender.com",
+    "VITE_API_PROXY_URL": "/api-proxy",
+    "VITE_APP_NAME": "NeuroPETRIX",
+    "VITE_APP_VERSION": "1.5.0"
+  },
+  "functions": {
+    "frontend/app/api/**/*.ts": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/docs",
+      "destination": "https://neuropetrix.onrender.com/docs",
+      "permanent": false
+    },
+    {
+      "source": "/api",
+      "destination": "https://neuropetrix.onrender.com/api",
+      "permanent": false
+    }
+  ]
+}

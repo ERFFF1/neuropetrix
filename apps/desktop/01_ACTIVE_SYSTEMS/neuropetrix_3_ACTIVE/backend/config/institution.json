@@ -1,0 +1,38 @@
+{
+  "institution": {
+    "name": "NeuroPETrix Medical Center",
+    "address": "İstanbul, Türkiye",
+    "phone": "+90 212 XXX XX XX",
+    "email": "info@neuropetrix.com"
+  },
+  "tsnm_defaults": {
+    "device_model": "Siemens Biograph mCT",
+    "fdg_dose_mbq": 300,
+    "glycemia_mgdl": 110,
+    "fasting_hours": 6,
+    "acquisition_time": "60 minutes post-injection",
+    "reconstruction_method": "OSEM 3i24s"
+  },
+  "report_priority_order": [
+    "primer_lez",
+    "lenf_nodu", 
+    "uzak_met",
+    "ilk_defa",
+    "malignite_suphe",
+    "klinik_onem",
+    "onerilen_mudahale"
+  ],
+  "ai_settings": {
+    "google_genai_api_key": "",
+    "model_name": "gemini-pro",
+    "max_tokens": 2048,
+    "temperature": 0.7
+  },
+  "compliance": {
+    "kvkk_enabled": true,
+    "hipaa_enabled": true,
+    "gdpr_enabled": true,
+    "data_retention_years": 7,
+    "encryption_level": "high"
+  }
+}

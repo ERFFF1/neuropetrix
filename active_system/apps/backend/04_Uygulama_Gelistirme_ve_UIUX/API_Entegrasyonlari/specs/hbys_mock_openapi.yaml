@@ -1,0 +1,143 @@
+openapi: 3.0.0
+info:
+  title: HBYS Mock API
+  description: Mock API for Hospital Information Management System
+  version: 1.0.0
+  contact:
+    name: NeuroPETrix Team
+    email: info@neuropetrix.com
+
+servers:
+  - url: http://localhost:8000/hbys
+    description: Development server
+
+paths:
+  /patients/{patient_id}:
+    get:
+      summary: Get patient information
+      parameters:
+        - name: patient_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Patient ID
+      responses:
+        '200':
+          description: Patient information retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  patient:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      age:
+                        type: integer
+                      gender:
+                        type: string
+                      diagnosis:
+                        type: string
+        '404':
+          description: Patient not found
+
+  /patients/{patient_id}/laboratory:
+    get:
+      summary: Get laboratory results
+      parameters:
+        - name: patient_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Laboratory results retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  results:
+                    type: object
+                    properties:
+                      glucose:
+                        type: number
+                      creatinine:
+                        type: number
+                      egfr:
+                        type: number
+
+  /patients/{patient_id}/medications:
+    get:
+      summary: Get medication list
+      parameters:
+        - name: patient_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Medication list retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  medications:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        dosage:
+                          type: string
+                        frequency:
+                          type: string
+
+  /patients/{patient_id}/status:
+    put:
+      summary: Update patient status
+      parameters:
+        - name: patient_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  description: New patient status
+      responses:
+        '200':
+          description: Patient status updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+
+

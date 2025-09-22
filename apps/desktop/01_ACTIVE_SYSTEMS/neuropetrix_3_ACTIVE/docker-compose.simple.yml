@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # NeuroPETRIX Backend API
+  neuropetrix-api:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - API_TITLE=NeuroPETRIX - Complete AI System
+      - API_VERSION=1.5.0
+      - MOCK_AI=false
+      - DATABASE_URL=sqlite:///neuropetrix.db
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - neuropetrix_db:/app
+    restart: unless-stopped
+
+  # NeuroPETRIX React Frontend
+  neuropetrix-react:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    environment:
+      - VITE_API_BASE=http://neuropetrix-api:8000
+    depends_on:
+      - neuropetrix-api
+    restart: unless-stopped
+
+volumes:
+  neuropetrix_db:
+
+networks:
+  default:
+    name: neuropetrix-network

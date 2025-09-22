@@ -1,0 +1,12 @@
+{
+  "patient_id": "NPX-002",
+  "icd10": "C34.9",
+  "clinical_goal": "response",
+  "intake_timestamp": "2025-09-01T23:02:41.626356",
+  "status": "intake_completed",
+  "imaging_available": false,
+  "evidence_built": false,
+  "report_generated": true,
+  "report_id": "RPT-NPX-002-20250901-230241",
+  "report_generated_at": "2025-09-01T23:02:41.634323"
+}

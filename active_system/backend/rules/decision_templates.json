@@ -1,0 +1,18 @@
+{
+  "staging": {
+    "no_imaging": "Hasta staging için değerlendirildi. DICOM görüntüleri mevcut değil. Klinik bulgular ve HBYS verileri değerlendirildi.",
+    "with_imaging": "Hasta staging için değerlendirildi. DICOM görüntüleri analiz edildi. Tümör lokalizasyonu ve metastaz durumu belirlendi."
+  },
+  "response": {
+    "no_imaging": "Hasta response değerlendirmesi için hazırlandı. DICOM görüntüleri mevcut değil.",
+    "percist_PMR": "Hasta response değerlendirmesi tamamlandı. PERCIST kriterlerine göre PMR (Partial Metabolic Response) tespit edildi.",
+    "percist_SMD": "Hasta response değerlendirmesi tamamlandı. PERCIST kriterlerine göre SMD (Stable Metabolic Disease) tespit edildi.",
+    "percist_PMD": "Hasta response değerlendirmesi tamamlandı. PERCIST kriterlerine göre PMD (Progressive Metabolic Disease) tespit edildi.",
+    "percist_SDP": "Hasta response değerlendirmesi tamamlandı. PERCIST kriterlerine göre SDP (Stable Disease with Progression) tespit edildi."
+  },
+  "lymphoma_followup": {
+    "no_imaging": "Hasta lenfoma follow-up için değerlendirildi. DICOM görüntüleri mevcut değil.",
+    "deauville_1_3": "Hasta lenfoma follow-up değerlendirmesi tamamlandı. Deauville skoru 1-3 arasında, iyi yanıt.",
+    "deauville_4_5": "Hasta lenfoma follow-up değerlendirmesi tamamlandı. Deauville skoru 4-5 arasında, yetersiz yanıt."
+  }
+}

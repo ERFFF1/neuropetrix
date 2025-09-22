@@ -1,0 +1,15 @@
+# Optional dependencies for advanced features
+# Install with: pip install -r requirements-optional.txt
+
+# Radiomics analysis (optional - can cause build issues)
+pyradiomics==3.0.1
+
+# Additional medical imaging libraries
+pydicom==2.4.3
+SimpleITK==2.2.1
+
+# Advanced AI/ML libraries
+torch==2.0.1
+torchvision==0.15.2
+scikit-image==0.21.0
+opencv-python==4.8.1.78

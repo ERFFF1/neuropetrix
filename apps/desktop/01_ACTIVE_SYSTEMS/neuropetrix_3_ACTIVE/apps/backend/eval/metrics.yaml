@@ -1,0 +1,47 @@
+# NeuroPETRIX v2.0 Evaluation Metrics
+
+performance_targets:
+  no_imaging:
+    target_time: "< 60 seconds"
+    description: "Staging without imaging data"
+    success_criteria: "Complete TSNM report generation"
+    
+  full_pipeline:
+    target_time: "< 5 minutes"
+    description: "Complete imaging + analysis pipeline"
+    success_criteria: "TSNM + Annex + FHIR generation"
+    
+  imaging_only:
+    target_time: "< 3 minutes"
+    description: "DICOM processing + analysis"
+    success_criteria: "MONAI + PyRadiomics + metrics"
+
+quality_targets:
+  suv_reproducibility:
+    target: "≤ ±0.2 g/ml"
+    description: "SUVmax measurement consistency"
+    test_method: "10 consecutive measurements"
+    
+  report_quality:
+    target: "≥ 4/5 score"
+    description: "Expert evaluation score"
+    evaluators: "2 senior radiologists"
+    
+  crash_free:
+    target: "10 consecutive cases"
+    description: "System stability"
+    failure_tolerance: "0 crashes"
+
+audit_requirements:
+  model_registry: true
+  rules_versioning: true
+  audit_trail: true
+  performance_logging: true
+  
+reporting_frequency:
+  performance: "every 10 cases"
+  quality: "every 50 cases"
+  audit: "every 100 cases"
+  system_health: "continuous"
+
+

@@ -1,0 +1,16 @@
+{
+  "patient_id": "string",
+  "icd10": "string",
+  "clinical_goal": "staging|response|lymphoma_followup",
+  "hbys": {
+    "ECOG": "number",
+    "eGFR": "number",
+    "BloodGlucose_mgdl": "number",
+    "allergies": ["string"],
+    "meds": ["string"]
+  },
+  "created_at": "datetime",
+  "status": "active|completed|archived"
+}
+
+

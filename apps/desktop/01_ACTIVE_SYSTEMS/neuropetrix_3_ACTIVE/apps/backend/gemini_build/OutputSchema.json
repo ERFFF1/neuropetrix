@@ -1,0 +1,133 @@
+{
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "ai_conclusion": {
+        "type": "string",
+        "description": "Kural tabanlı AI sonucu",
+        "enum": [
+          "staging.no_imaging",
+          "staging.with_imaging", 
+          "response.no_imaging",
+          "response.percist_PMR",
+          "response.percist_SMD",
+          "response.percist_PMD",
+          "response.percist_SDP",
+          "lymphoma_followup.no_imaging",
+          "lymphoma_followup.deauville_1_3",
+          "lymphoma_followup.deauville_4_5"
+        ]
+      },
+      "rationale_keys": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "AI sonucunun gerekçe anahtarları"
+      },
+      "optional": {
+        "type": "object",
+        "properties": {
+          "percist": {
+            "type": "string",
+            "enum": ["PMR", "SMD", "PMD", "SDP"],
+            "description": "PERCIST kriteri (sadece response clinical_goal için)"
+          },
+          "deauville": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 5,
+            "description": "Deauville skoru (sadece lymphoma_followup için)"
+          },
+          "qc_flags": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Kalite kontrol uyarıları"
+          },
+          "grade_summary": {
+            "type": "string",
+            "enum": ["GRADE A", "GRADE B", "GRADE C", "GRADE D"],
+            "description": "Kanıt kalitesi özeti"
+          },
+          "refs": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Önemli referanslar"
+          }
+        }
+      },
+      "created_at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "AI sonucunun oluşturulma zamanı"
+      },
+      "model_version": {
+        "type": "string",
+        "description": "Kullanılan AI model versiyonu"
+      }
+    },
+    "required": ["ai_conclusion", "rationale_keys"],
+    "additionalProperties": false
+  },
+  "validation_rules": {
+    "staging": {
+      "description": "Staging için PERCIST ve Deauville null olmalı",
+      "rules": [
+        "percist must be null",
+        "deauville must be null",
+        "ai_conclusion must start with 'staging.'"
+      ]
+    },
+    "response": {
+      "description": "Response için PERCIST hesaplanmalı, Deauville null olmalı",
+      "rules": [
+        "percist must be one of: PMR, SMD, PMD, SDP",
+        "deauville must be null",
+        "ai_conclusion must start with 'response.'"
+      ]
+    },
+    "lymphoma_followup": {
+      "description": "Lymphoma follow-up için Deauville hesaplanmalı, PERCIST null olmalı",
+      "rules": [
+        "deauville must be between 1 and 5",
+        "percist must be null",
+        "ai_conclusion must start with 'lymphoma_followup.'"
+      ]
+    }
+  },
+  "example_outputs": {
+    "staging_no_imaging": {
+      "ai_conclusion": "staging.no_imaging",
+      "rationale_keys": ["no_dicom", "clinical_assessment"],
+      "optional": {
+        "percist": null,
+        "deauville": null,
+        "qc_flags": [],
+        "grade_summary": null,
+        "refs": []
+      }
+    },
+    "response_pmr": {
+      "ai_conclusion": "response.percist_PMR",
+      "rationale_keys": ["dicom_available", "suv_decrease", "response_criteria"],
+      "optional": {
+        "percist": "PMR",
+        "deauville": null,
+        "qc_flags": ["normal_glucose", "optimal_uptake"],
+        "grade_summary": "GRADE A",
+        "refs": ["PERCIST_v1.0", "Response_guidelines"]
+      }
+    },
+    "lymphoma_dv2": {
+      "ai_conclusion": "lymphoma_followup.deauville_1_3",
+      "rationale_keys": ["dicom_available", "deauville_scoring", "good_response"],
+      "optional": {
+        "percist": null,
+        "deauville": 2,
+        "qc_flags": ["normal_glucose"],
+        "grade_summary": "GRADE B",
+        "refs": ["Deauville_criteria", "Lymphoma_guidelines"]
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,104 @@
+version: '3.8'
+
+services:
+  # API Service
+  api:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://neuropetrix:password@postgres:5432/neuropetrix
+      - REDIS_URL=redis://redis:6379
+      - MINIO_ENDPOINT=minio:9000
+      - ORTHANC_URL=http://orthanc:8042
+      - FHIR_URL=http://hapi-fhir:8080
+    depends_on:
+      - postgres
+      - redis
+      - minio
+      - orthanc
+      - hapi-fhir
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    restart: unless-stopped
+
+  # Database
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=neuropetrix
+      - POSTGRES_USER=neuropetrix
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  # Redis for job queue
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  # MinIO for file storage
+  minio:
+    image: minio/minio:latest
+    environment:
+      - MINIO_ROOT_USER=neuropetrix
+      - MINIO_ROOT_PASSWORD=password123
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    restart: unless-stopped
+
+  # Orthanc PACS
+  orthanc:
+    image: jodogne/orthanc-plugins:1.12.1
+    ports:
+      - "8042:8042"
+      - "4242:4242"
+    environment:
+      - ORTHANC__NAME=NeuroPETRIX-PACS
+      - ORTHANC__AET=NEUROPETRIX
+      - ORTHANC__VERBOSE=true
+    volumes:
+      - orthanc_data:/var/lib/orthanc/db
+      - ./data/dicom:/var/lib/orthanc/db
+    restart: unless-stopped
+
+  # HAPI FHIR Server
+  hapi-fhir:
+    image: hapiproject/hapi:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - HAPI_FHIR__FHI_CLIENT__TEST_SERVER_URL=http://localhost:8080/fhir
+    restart: unless-stopped
+
+  # Celery Worker for async tasks
+  worker:
+    build: ./backend
+    command: celery -A main.celery worker --loglevel=info
+    environment:
+      - DATABASE_URL=postgresql://neuropetrix:password@postgres:5432/neuropetrix
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  orthanc_data:
+  minio_data:
+
+

@@ -1,0 +1,52 @@
+{
+  "patient_id": "NPX-002",
+  "report_id": "RPT-NPX-002-20250901-134333",
+  "generated_at": "2025-09-01 13:43:33.770316",
+  "tsnm_report": {
+    "patient_id": "NPX-002",
+    "icd10": "C34.9",
+    "clinical_goal": "response",
+    "findings": "No imaging data available for findings generation",
+    "percist_category": null,
+    "deauville_score": null,
+    "ai_conclusion": "Response assessment requires baseline and follow-up imaging for PERCIST evaluation.",
+    "qc_flags": [],
+    "report_type": "TSNM",
+    "generated_at": "2025-09-01T13:43:33.770276"
+  },
+  "annex_report": {
+    "pico_question": null,
+    "grade_summary": null,
+    "references": [],
+    "toxicity_notes": null,
+    "evidence_level": null,
+    "report_type": "Evidence Annex",
+    "generated_at": "2025-09-01T13:43:33.770288"
+  },
+  "fhir_report": {
+    "diagnostic_report": {
+      "resourceType": "DiagnosticReport",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "18748-4",
+            "display": "Diagnostic imaging study report"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/NPX-002"
+      },
+      "effectiveDateTime": "2025-09-01T13:43:33.770291",
+      "issued": "2025-09-01T13:43:33.770293",
+      "result": []
+    },
+    "observations": [],
+    "report_type": "FHIR",
+    "generated_at": "2025-09-01T13:43:33.770294"
+  },
+  "status": "completed",
+  "processing_time": 0.0039520263671875
+}

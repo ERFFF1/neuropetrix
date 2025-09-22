@@ -1,0 +1,17 @@
+{
+  "patient_id": "NPX-003",
+  "icd10": "C81.9",
+  "clinical_goal": "lymphoma_followup",
+  "hbys": {
+    "ECOG": 0,
+    "eGFR": 90.0,
+    "BloodGlucose_mgdl": 95.0,
+    "allergies": [],
+    "meds": [
+      "ABVD Protocol"
+    ],
+    "additional_data": null
+  },
+  "intake_timestamp": "2025-09-01 23:02:41.636579",
+  "source_system": "HBYS"
+}

@@ -1,0 +1,89 @@
+version: '3.8'
+
+services:
+  neuropetrix-backend:
+    build: .
+    container_name: neuropetrix-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - API_TITLE=NeuroPETRIX Production
+      - API_VERSION=1.5.0
+      - DEBUG=false
+      - RELOAD=false
+      - WORKERS=4
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  neuropetrix-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: neuropetrix-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - neuropetrix-backend
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    container_name: neuropetrix-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - neuropetrix-backend
+      - neuropetrix-frontend
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: neuropetrix-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: neuropetrix-grafana
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=neuropetrix2024
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+volumes:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  default:
+    name: neuropetrix-network

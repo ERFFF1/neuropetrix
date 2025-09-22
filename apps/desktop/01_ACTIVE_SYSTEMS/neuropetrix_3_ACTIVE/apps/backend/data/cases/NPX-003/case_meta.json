@@ -1,0 +1,12 @@
+{
+  "patient_id": "NPX-003",
+  "icd10": "C81.9",
+  "clinical_goal": "lymphoma_followup",
+  "intake_timestamp": "2025-09-01T23:02:41.636579",
+  "status": "intake_completed",
+  "imaging_available": false,
+  "evidence_built": false,
+  "report_generated": true,
+  "report_id": "RPT-NPX-003-20250901-230241",
+  "report_generated_at": "2025-09-01T23:02:41.642793"
+}

@@ -1,8 +1,7 @@
-# NeuroPETRIX Ultra-Minimal Requirements for Render
-# Python 3.13 compatible versions
-
 fastapi==0.68.0
-uvicorn==0.15.0
+starlette==0.14.2
 pydantic==1.10.13
 python-multipart==0.0.5
 requests==2.25.1
+# uvicorn (opsiyonel - local geliştirme için; Vercel'de kullanılmıyor)
+uvicorn==0.15.0
