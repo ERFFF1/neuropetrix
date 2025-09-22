@@ -1,39 +1,20 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 
-const HomePage = () => {
+export default function Home() {
+  const [msg, setMsg] = useState('Kontrol ediliyor...');
+
+  useEffect(() => {
+    const base = process.env.NEXT_PUBLIC_API_URL; // Vercel env'den gelecek
+    fetch(`${base}/api/healthz`)
+      .then(r => r.json())
+      .then(d => setMsg(`Backend: ${d.neuropetrix} (${d.platform})`))
+      .catch(() => setMsg('API bağlantı hatası!'));
+  }, []);
+
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1>🚀 NeuroPETRIX Full-Stack App</h1>
-      <p>Vercel Tek Platform - Backend + Frontend</p>
-      
-      <h2>📊 Status Check:</h2>
-      <p>API Status: <span style={{color: 'green'}}>ok</span></p>
-      
-      <h2>🔗 Available Endpoints:</h2>
-      <ul>
-        <li>
-          <a href="/api/health" target="_blank" rel="noopener noreferrer">
-            Health Check: /api/health
-          </a>
-        </li>
-        <li>
-          <a href="/api/test" target="_blank" rel="noopener noreferrer">
-            Test Endpoint: /api/test
-          </a>
-        </li>
-      </ul>
-      
-      <div style={{backgroundColor: '#f0f0f0', padding: '15px', marginTop: '20px'}}>
-        <h3>✅ Vercel Tek Platform Avantajları:</h3>
-        <ul>
-          <li>🚀 Tek platform yönetimi</li>
-          <li>⚡ Otomatik deploy (Git push)</li>
-          <li>🔗 Backend + Frontend aynı yerde</li>
-          <li>💰 Tek faturalandırma</li>
-        </ul>
-      </div>
-    </div>
+    <main style={{padding:20, fontFamily:'sans-serif'}}>
+      <h1>Neuropetrix</h1>
+      <p>{msg}</p>
+    </main>
   );
-};
-
-export default HomePage;
+}
